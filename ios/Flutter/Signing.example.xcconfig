@@ -1,0 +1,5 @@
+// Copy to Signing.xcconfig (ignored by git) and set your own team. A free Personal Team
+// works: find its ID in Xcode › Settings › Accounts, or in any signed build's settings.
+DEVELOPMENT_TEAM = YOUR_TEAM_ID
+// The bundle id must be unique to your team; change it if signing complains.
+// PRODUCT_BUNDLE_IDENTIFIER = com.example.math

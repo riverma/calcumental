@@ -1,0 +1,4 @@
+#include "Generated.xcconfig"
+// Your Apple Developer team, kept out of the repository. Copy Signing.example.xcconfig to
+// Signing.xcconfig and fill it in.
+#include? "Signing.xcconfig"
