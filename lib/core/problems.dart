@@ -80,7 +80,11 @@ class Problems {
       Op.subtract => _subtract(level),
       Op.divide => _divide(level),
     };
-    return Problem(a, b, op);
+    // The bigger number comes first: 11 × 9, not 9 × 11. It is the easier way round to hold in
+    // your head. Subtraction and division already read that way (nothing goes below zero, and
+    // the dividend is a multiple of the divisor), so only the order of × and + needs fixing.
+    final swap = (op == Op.multiply || op == Op.add) && b > a;
+    return swap ? Problem(b, a, op) : Problem(a, b, op);
   }
 
   List<Problem> set(Mode mode, Level level, int count) => [for (var i = 0; i < count; i++) make(mode, level)];

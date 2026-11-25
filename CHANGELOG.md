@@ -7,6 +7,7 @@ All notable changes to this project are documented here. The format follows
 ## [Unreleased]
 
 ### Changed
+- The bigger number always comes first, so 11 × 9 and 120 + 87 rather than 9 × 11 and 87 + 120. Subtraction and division already read that way.
 - Renamed from Mental Math to Matheos, in every language, on the home screen, the launch screen, the About text and the privacy policy. The package name and the saved-settings key keep their old identifiers, so nothing a person has chosen is lost.
 
 ### Added

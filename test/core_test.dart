@@ -48,6 +48,18 @@ void main() {
       });
     }
 
+    test('the bigger number always comes first', () {
+      final gen = Problems(Random(11));
+      for (final level in Level.values) {
+        for (var i = 0; i < 2000; i++) {
+          for (final mode in Mode.values) {
+            final p = gen.make(mode, level);
+            expect(p.a, greaterThanOrEqualTo(p.b), reason: p.text);
+          }
+        }
+      }
+    });
+
     test('mixed uses every operation', () {
       final ops = {for (var i = 0; i < 200; i++) gen.make(Mode.mixed, Level.easy).op};
       expect(ops, Op.values.toSet());
