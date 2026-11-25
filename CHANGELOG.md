@@ -6,6 +6,25 @@ All notable changes to this project are documented here. The format follows
 
 ## [Unreleased]
 
+### Added
+- An About page, from a small button at the foot of the menu: why the app was made and its
+  version. On the web it also has a small Donate button that opens Stripe in the browser.
+- A privacy policy, in English and Spanish, on the web at `/privacy/` and from a small
+  Privacy button on the About page.
+- iPad: tested on the iPad mini, the 13-inch iPad Pro both ways round, and Split View at
+  320pt, at normal and very large text.
+
+### Changed
+- The menu's footer no longer carries the "built with love" credit, the privacy line or
+  the version; they give way to the About button.
+- The bundle id is now `com.riverma.math`, ready for the App Store.
+- A choice tile's name shrinks to fit rather than breaking inside a word (Spanish
+  "Multiplicar" in Split View with very large text).
+
+### Security
+- The web page's content security policy no longer allows inline script.
+- The iOS app declares that it uses no non-exempt encryption.
+
 ## [1.0.0] - 2026-10-16
 
 ### Added

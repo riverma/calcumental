@@ -24,8 +24,8 @@ Future<void> loadFonts() async {
   }
 }
 
-Game testGame([Settings settings = const Settings(), int seed = 1]) =>
-    Game(store: MemorySettings(settings), settings: settings, random: Random(seed));
+Game testGame([Settings settings = const Settings(), int seed = 1, bool offersDonate = false]) =>
+    Game(store: MemorySettings(settings), settings: settings, random: Random(seed), offersDonate: offersDonate);
 
 Future<void> pumpApp(
   WidgetTester tester,
@@ -70,7 +70,7 @@ List<String> splitWords(WidgetTester tester) {
   for (final element in find.byType(RichText).evaluate()) {
     final render = element.renderObject;
     if (render is! RenderParagraph || !render.hasSize || !render.attached) continue;
-    // An inline widget (the credit's heart) is one placeholder character, as the painter counts.
+    // An inline widget is one placeholder character, as the painter counts.
     final text = render.text.toPlainText(includeSemanticsLabels: false);
     if (text.length < 2) continue;
     // The same text, laid out the same way, so its line boundaries can be asked for.

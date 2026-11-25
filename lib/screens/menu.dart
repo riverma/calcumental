@@ -11,7 +11,6 @@ import '../design/ground.dart';
 import '../design/icons.dart';
 import '../design/theme.dart';
 import '../design/tokens.dart';
-import '../game.dart';
 import '../l10n/strings.dart';
 
 class MenuScreen extends StatelessWidget {
@@ -150,7 +149,6 @@ class _Footer extends StatelessWidget {
   Widget build(BuildContext context) {
     final game = Scope.of(context);
     final s = context.s;
-    final kh = Kh.of(context);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -170,23 +168,9 @@ class _Footer extends StatelessWidget {
           onChanged: (v) => game.update((x) => x.copyWith(look: v)),
         ),
         const SizedBox(height: Space.s5),
-        Text(s.privacy, style: kh.t.caption),
-        const SizedBox(height: Space.s1),
-        Text('v$appVersion', style: kh.t.caption),
-        const SizedBox(height: Space.s1),
-        Semantics(
-          label: s.builtBySpoken,
-          excludeSemantics: true,
-          child: Text.rich(
-            TextSpan(
-              children: [
-                TextSpan(text: s.builtBy.$1),
-                const WidgetSpan(alignment: PlaceholderAlignment.middle, child: KhIcon(KhIcons.heart, size: 18)),
-                TextSpan(text: s.builtBy.$2),
-              ],
-            ),
-            style: kh.t.caption,
-          ),
+        Align(
+          alignment: AlignmentDirectional.centerStart,
+          child: KhButton(s.about, size: KhButtonSize.sm, kind: KhButtonKind.ghost, onPressed: game.about),
         ),
       ],
     );

@@ -11,10 +11,11 @@
     fonts and assets; every one of them is served from here.
       'wasm-unsafe-eval': the CanvasKit renderer is WebAssembly.
       blob: in worker-src: the renderer's worker.
-    The Source link is a navigation the person chooses, which CSP does not gate.
+    No inline script: Flutter's loader and engine are files served from here.
+    The Donate and Privacy links are navigations the person chooses, which CSP does not gate.
   -->
   <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self'; script-src 'self' 'wasm-unsafe-eval' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data: blob:; connect-src 'self' blob: data:; worker-src 'self' blob:; manifest-src 'self'; base-uri 'self'; form-action 'none'; object-src 'none'">
+        content="default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data: blob:; connect-src 'self' blob: data:; worker-src 'self' blob:; manifest-src 'self'; base-uri 'self'; form-action 'none'; object-src 'none'">
   <title>Mental Math</title>
   <meta name="description" content="Arithmetic puzzles to play at your own pace. Offline, on your own device, with nothing counted and nothing kept but your settings.">
   <meta name="theme-color" content="#fbf0d9" media="(prefers-color-scheme: light)">

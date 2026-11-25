@@ -370,8 +370,14 @@ class KhTile extends StatelessWidget {
               ),
             ),
             const SizedBox(width: Space.s3),
+            // A title is one short name. Where even that cannot fit whole (Split View at 320pt
+            // with very large text), it shrinks rather than breaking inside the word.
             Expanded(
-              child: Text(title, style: kh.t.sign(21).copyWith(color: ink)),
+              child: FittedBox(
+                fit: BoxFit.scaleDown,
+                alignment: AlignmentDirectional.centerStart,
+                child: Text(title, style: kh.t.sign(21).copyWith(color: ink)),
+              ),
             ),
             const SizedBox(width: Space.s2),
             // A drawn check, so the choice reads without colour. Always laid out, so

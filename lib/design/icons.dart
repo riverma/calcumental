@@ -1,6 +1,6 @@
 // Khelo's drawn icons (assets/icons/, copied unchanged from khelo-design src/icons/), plus
-// two drawn here in the same hand (48-unit grid, 2.5 outline, round joins, flat fills):
-// mixed.svg, two passing arrows, and heart.svg.
+// one drawn here in the same hand (48-unit grid, 2.5 outline, round joins, flat fills):
+// mixed.svg, two passing arrows.
 //
 // On the web, icons.css paints them: the outline is currentColor and each `kh-f-*` class
 // takes the aesthetic's fill. Flutter's SVG renderer has no stylesheet, so the same two
@@ -13,7 +13,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 import 'theme.dart';
 
-enum KhIcons { check, cross, lattu, kamal, genda, rangoli, mixed, heart }
+enum KhIcons { check, cross, lattu, kamal, genda, rangoli, mixed }
 
 final _sources = <KhIcons, Future<String>>{};
 

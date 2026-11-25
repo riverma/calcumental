@@ -12,15 +12,17 @@ const _text = ['.html', '.js', '.json', '.css', '.webmanifest', '.mjs'];
 /// and Flutter's loader (inlined into flutter_bootstrap.js) carry inert URLs in comments and
 /// defaults; only the fetch check applies there, and the loader is checked below for the
 /// settings that override those defaults.
-final _ours = RegExp(r'^(index\.html|sw\.js|manifest\.json)$');
+final _ours = RegExp(r'^(index\.html|sw\.js|manifest\.json|privacy/index\.html)$');
 
 /// The only URLs allowed to appear are ones a person may choose to open, never ones the app
 /// fetches.
 const _allowedLinks = [
   'https://math.riverma.com',
+  'https://math.riverma.com/privacy/',
   'https://khelo-design.riverma.com',
   'https://www.gnu.org/licenses/agpl-3.0.html',
   'https://github.com/riverma/math-app',
+  'https://buy.stripe.com/9B6eVe8Gf4Bt21I6HFgrS00',
   'http://www.w3.org/',
 ];
 

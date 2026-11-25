@@ -34,15 +34,14 @@ class S {
   String get apply => _f('apply');
   String get language => _f('language');
   String get look => _f('look');
-  String get privacy => _f('privacy');
+  String version(String v) => _f('version').replaceAll('{v}', v);
 
-  /// The credit line, either side of a drawn heart, and how a screen reader says it.
-  (String, String) get builtBy {
-    final parts = _f('builtBy').split('{heart}');
-    return (parts.first, parts.last);
-  }
-
-  String get builtBySpoken => _f('builtBy').replaceAll('{heart}', _f('love'));
+  String get donate => _f('donate');
+  String get privacyPolicy => _f('privacyPolicy');
+  String get about => _f('about');
+  String get back => _f('back');
+  String get aboutStory => _f('aboutStory');
+  String get aboutSharp => _f('aboutSharp');
   String get stop => _f('stop');
   String get yourAnswer => _f('yourAnswer');
   String get check => _f('check');
@@ -102,9 +101,14 @@ const _all = <Lang, Map<String, String>>{
     'look.auto': 'Auto',
     'look.mela': 'Mela',
     'look.raat': 'Raat',
-    'privacy': 'Nothing collected, nothing tracked. It all stays on this device.',
-    'builtBy': 'Built with {heart} by Rishi Verma',
-    'love': 'love',
+    'version': 'Version: {v}',
+    'donate': 'Donate',
+    'privacyPolicy': 'Privacy',
+    'about': 'About',
+    'back': 'Back',
+    'aboutStory':
+        'Mental Math was made for a young girl in Mexico who loved numbers and wanted more arithmetic to practice.',
+    'aboutSharp': 'It turns out a lot of people could use it. A little practice keeps the mind sharp.',
     'stop': 'Stop',
     'steps': '{n} of {total}',
     'problemOf': 'Problem {n} of {total}',
@@ -155,9 +159,14 @@ const _all = <Lang, Map<String, String>>{
     'look.auto': 'Auto',
     'look.mela': 'Mela',
     'look.raat': 'Raat',
-    'privacy': 'No se recoge ni se rastrea nada. Todo se queda en este dispositivo.',
-    'builtBy': 'Hecho con {heart} por Rishi Verma',
-    'love': 'amor',
+    'version': 'Versión: {v}',
+    'donate': 'Donar',
+    'privacyPolicy': 'Privacidad',
+    'about': 'Acerca de',
+    'back': 'Volver',
+    'aboutStory':
+        'Cálculo mental se hizo para una niña en México a quien le encantaban los números y quería practicar más aritmética.',
+    'aboutSharp': 'Resulta que a mucha gente le sirve. Un poco de práctica mantiene la mente ágil.',
     'stop': 'Parar',
     'steps': '{n} de {total}',
     'problemOf': 'Problema {n} de {total}',
@@ -208,9 +217,14 @@ const _all = <Lang, Map<String, String>>{
     'look.auto': 'अपने-आप',
     'look.mela': 'मेला',
     'look.raat': 'रात',
-    'privacy': 'कुछ भी इकट्ठा या ट्रैक नहीं होता। सब कुछ इसी डिवाइस पर रहता है।',
-    'builtBy': 'Rishi Verma ने {heart} से बनाया',
-    'love': 'प्यार',
+    'version': 'संस्करण: {v}',
+    'donate': 'दान करें',
+    'privacyPolicy': 'गोपनीयता',
+    'about': 'परिचय',
+    'back': 'वापस',
+    'aboutStory':
+        'मानसिक गणित मेक्सिको की एक छोटी लड़की के लिए बनाया गया था, जिसे संख्याओं से प्यार था और जो अंकगणित का और अभ्यास करना चाहती थी।',
+    'aboutSharp': 'पता चला कि यह बहुत से लोगों के काम आ सकता है। थोड़ा-सा अभ्यास दिमाग़ को तेज़ रखता है।',
     'stop': 'रुकें',
     'steps': '{total} में से {n}',
     'problemOf': '{total} में से सवाल {n}',

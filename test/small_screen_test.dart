@@ -51,6 +51,9 @@ void main() {
             void check(String where) => seen[where] = splitWords(tester);
 
             check('menu');
+            await tapVisible(tester, find.bySemanticsLabel(s.about));
+            check('about');
+            await tapVisible(tester, find.bySemanticsLabel(s.back));
             await tapVisible(tester, find.bySemanticsLabel(s.letsPlay));
             check('asking');
 

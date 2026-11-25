@@ -7,6 +7,7 @@ import 'package:mental_math/core/problems.dart';
 import 'package:mental_math/core/session.dart';
 import 'package:mental_math/core/settings.dart';
 import 'package:mental_math/game.dart';
+import 'package:mental_math/screens/about.dart';
 import 'package:mental_math/screens/ending.dart';
 import 'package:mental_math/screens/menu.dart';
 import 'package:mental_math/screens/play.dart';
@@ -175,5 +176,28 @@ void main() {
     expect(game.draft!.mode, Mode.multiply);
     await tapVisible(tester, find.bySemanticsLabel('Let’s play'));
     expect(game.session.current.op, Op.multiply);
+  });
+
+  testWidgets('About tells the story and shows the version; no Donate in the iOS app', (tester) async {
+    final game = testGame();
+    await pumpApp(tester, game);
+    await tapVisible(tester, find.bySemanticsLabel('About'));
+    expect(find.byType(AboutScreen), findsOneWidget);
+    expect(find.textContaining('young girl in Mexico'), findsOneWidget);
+    expect(find.text('Version: $appVersion'), findsOneWidget);
+    expect(find.bySemanticsLabel('Donate'), findsNothing);
+    expect(find.bySemanticsLabel('Privacy'), findsOneWidget);
+    await tapVisible(tester, find.bySemanticsLabel('Back'));
+    expect(find.byType(MenuScreen), findsOneWidget);
+  });
+
+  testWidgets('the web build offers Donate on About', (tester) async {
+    final game = testGame(const Settings(), 1, true);
+    await pumpApp(tester, game);
+    await tapVisible(tester, find.bySemanticsLabel('About'));
+    expect(find.bySemanticsLabel('Donate'), findsOneWidget);
+    expect(find.bySemanticsLabel('Privacy'), findsOneWidget);
+    await tapVisible(tester, find.bySemanticsLabel('Back'));
+    expect(find.byType(MenuScreen), findsOneWidget);
   });
 }

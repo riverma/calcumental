@@ -11,9 +11,9 @@ import 'core/problems.dart';
 import 'core/session.dart';
 import 'core/settings.dart';
 
-const appVersion = '1.0.0';
+const appVersion = '1.1.0';
 
-enum Screen { menu, play, end }
+enum Screen { menu, play, end, about }
 
 /// Where settings live. Swapped for memory in tests.
 abstract class SettingsStore {
@@ -58,11 +58,15 @@ class MemorySettings implements SettingsStore {
 }
 
 class Game extends ChangeNotifier {
-  Game({required this.store, Settings settings = const Settings(), Random? random})
+  Game({required this.store, Settings settings = const Settings(), Random? random, this.offersDonate = kIsWeb})
     : _settings = settings,
       _problems = Problems(random);
 
   final SettingsStore store;
+
+  /// Donate is offered on the web only. In the iOS app a payment link out would break App Store
+  /// guideline 3.1.1, so there it is not shown at all.
+  final bool offersDonate;
   final Problems _problems;
 
   Settings _settings;
@@ -140,6 +144,12 @@ class Game extends ChangeNotifier {
   void stop() {
     session.stop();
     _screen = Screen.end;
+    notifyListeners();
+  }
+
+  void about() {
+    _draft = null;
+    _screen = Screen.about;
     notifyListeners();
   }
 

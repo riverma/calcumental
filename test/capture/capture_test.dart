@@ -38,6 +38,12 @@ void main() {
         }
 
         await shot('1-menu');
+        final scroller = find.byType(Scrollable).first;
+        await tester.scrollUntilVisible(find.bySemanticsLabel(s.about), 300, scrollable: scroller);
+        await shot('1-menu-footer');
+        await tapVisible(tester, find.bySemanticsLabel(s.about));
+        await shot('6-about');
+        await tapVisible(tester, find.bySemanticsLabel(s.back));
         await tapVisible(tester, find.bySemanticsLabel(s.letsPlay));
         await tester.enterText(find.byType(EditableText), '5');
         await tester.pump();
@@ -71,5 +77,32 @@ void main() {
         expect(game.session.current.op, Op.multiply);
       }, skip: !on);
     }
+  }
+
+  // iPad Pro 13", in English: the start of the iPad App Store screenshots.
+  for (final look in const [Look.mela, Look.raat]) {
+    testWidgets('ipad ${look.name}', (tester) async {
+      final s = S.of(Lang.en);
+      final game = testGame(Settings(look: look, count: 10), 3);
+      await pumpApp(tester, game, size: const Size(1032, 1376));
+
+      Future<void> shot(String name) async {
+        await tester.runAsync(() => Future<void>.delayed(const Duration(milliseconds: 400)));
+        await settle(tester);
+        final image = await captureImage(find.byType(MathApp).evaluate().single);
+        final bytes = (await tester.runAsync(() => image.toByteData(format: ui.ImageByteFormat.png)))!;
+        final f = File('build/shots/ipad-${look.name}-$name.png')..createSync(recursive: true);
+        f.writeAsBytesSync(bytes.buffer.asUint8List());
+      }
+
+      await shot('1-menu');
+      await tapVisible(tester, find.bySemanticsLabel(s.about));
+      await shot('2-about');
+      await tapVisible(tester, find.bySemanticsLabel(s.back));
+      await tapVisible(tester, find.bySemanticsLabel(s.letsPlay));
+      await tester.enterText(find.byType(EditableText), '42');
+      await tester.pump();
+      await shot('3-asking');
+    }, skip: !on);
   }
 }

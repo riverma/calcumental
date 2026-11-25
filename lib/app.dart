@@ -1,4 +1,4 @@
-// The shell: Khelo's theme, the page ground, and whichever screen is showing. Three screens,
+// The shell: Khelo's theme, the page ground, and whichever screen is showing. Four screens,
 // switched by the person's own presses; there is no navigation stack to get lost in.
 
 import 'package:flutter/widgets.dart';
@@ -8,6 +8,7 @@ import 'design/theme.dart';
 import 'design/typography.dart';
 import 'game.dart';
 import 'l10n/strings.dart';
+import 'screens/about.dart';
 import 'screens/ending.dart';
 import 'screens/menu.dart';
 import 'screens/play.dart';
@@ -80,6 +81,7 @@ class _Root extends StatelessWidget {
                         Screen.menu => const MenuScreen(),
                         Screen.play => const PlayScreen(),
                         Screen.end => const EndingScreen(),
+                        Screen.about => const AboutScreen(),
                       },
                     ),
                   ),
