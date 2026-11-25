@@ -1,4 +1,4 @@
-// Calcu's service worker. Hand-rolled, no build-time framework: the asset list and the
+// Matheos's service worker. Hand-rolled, no build-time framework: the asset list and the
 // cache name are injected by tool/build_sw.dart after each build.
 // Everything the app needs is precached, so the app runs with the radio off, forever.
 const VERSION = '__SW_VERSION__';

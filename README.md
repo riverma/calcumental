@@ -1,4 +1,4 @@
-# Calcu
+# Matheos
 
 Arithmetic puzzles to play at your own pace: times, plus, minus, divide or a mix, at three
 levels, in English, Spanish or Hindi. Offline, on your own device. Nothing is counted,

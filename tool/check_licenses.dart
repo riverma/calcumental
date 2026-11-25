@@ -1,4 +1,4 @@
-// Every package Calcu ships or builds with must be free software, and compatible with
+// Every package Matheos ships or builds with must be free software, and compatible with
 // shipping the whole as AGPL-3.0-or-later. Fails on anything outside the allow-list, or on a
 // package with no licence file at all.
 //
@@ -73,7 +73,7 @@ void main() {
   }
   stdout.writeln('$checked packages checked, ${bad.length} outside the allow-list');
   if (bad.isNotEmpty) {
-    stderr.writeln('\nCalcu ships only free software. Replace or remove the packages above.');
+    stderr.writeln('\nMatheos ships only free software. Replace or remove the packages above.');
     exit(1);
   }
 }

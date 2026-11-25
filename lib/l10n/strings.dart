@@ -77,7 +77,7 @@ class S {
 
 const _all = <Lang, Map<String, String>>{
   Lang.en: {
-    'appTitle': 'Calcu',
+    'appTitle': 'Matheos',
     'lead': 'Exercise your mental muscles. Take your time.',
     'letsPlay': 'Let’s play',
     'chooseOwn': 'Customize',
@@ -107,7 +107,7 @@ const _all = <Lang, Map<String, String>>{
     'about': 'About',
     'back': 'Back',
     'aboutStory':
-        'Calcu was made for a young girl in Mexico who loved numbers and wanted more arithmetic to practice.',
+        'Matheos was made for a young girl in Mexico who loved numbers and wanted more arithmetic to practice.',
     'aboutSharp': 'It turns out a lot of people could use it. A little practice keeps the mind sharp.',
     'stop': 'Stop',
     'steps': '{n} of {total}',
@@ -135,7 +135,7 @@ const _all = <Lang, Map<String, String>>{
     'menu': 'Back to the menu',
   },
   Lang.es: {
-    'appTitle': 'Calcu',
+    'appTitle': 'Matheos',
     'lead': 'Ejercita tus músculos mentales. Sin prisa.',
     'letsPlay': 'A jugar',
     'chooseOwn': 'Personalizar',
@@ -165,7 +165,7 @@ const _all = <Lang, Map<String, String>>{
     'about': 'Acerca de',
     'back': 'Volver',
     'aboutStory':
-        'Calcu se hizo para una niña en México a quien le encantaban los números y quería practicar más aritmética.',
+        'Matheos se hizo para una niña en México a quien le encantaban los números y quería practicar más aritmética.',
     'aboutSharp': 'Resulta que a mucha gente le sirve. Un poco de práctica mantiene la mente ágil.',
     'stop': 'Parar',
     'steps': '{n} de {total}',
@@ -193,7 +193,7 @@ const _all = <Lang, Map<String, String>>{
     'menu': 'Volver al menú',
   },
   Lang.hi: {
-    'appTitle': 'Calcu',
+    'appTitle': 'Matheos',
     'lead': 'अपने दिमाग़ की कसरत करें। आराम से।',
     'letsPlay': 'चलो खेलें',
     'chooseOwn': 'अपना खेल चुनें',
@@ -223,7 +223,7 @@ const _all = <Lang, Map<String, String>>{
     'about': 'परिचय',
     'back': 'वापस',
     'aboutStory':
-        'Calcu मेक्सिको की एक छोटी लड़की के लिए बनाया गया था, जिसे संख्याओं से प्यार था और जो अंकगणित का और अभ्यास करना चाहती थी।',
+        'Matheos मेक्सिको की एक छोटी लड़की के लिए बनाया गया था, जिसे संख्याओं से प्यार था और जो अंकगणित का और अभ्यास करना चाहती थी।',
     'aboutSharp': 'पता चला कि यह बहुत से लोगों के काम आ सकता है। थोड़ा-सा अभ्यास दिमाग़ को तेज़ रखता है।',
     'stop': 'रुकें',
     'steps': '{total} में से {n}',

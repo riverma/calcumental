@@ -1,4 +1,4 @@
-// Calcu must work with the radio off, forever. Nothing in the web build may reach the
+// Matheos must work with the radio off, forever. Nothing in the web build may reach the
 // network: no third-party origins in the HTML, the bootstrap, the service worker or the
 // manifest, and nothing anywhere that fetches from one.
 //

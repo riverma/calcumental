@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <!--
-  Apple's privacy manifest for Calcu. No tracking, no tracking domains, and no data
+  Apple's privacy manifest for Matheos. No tracking, no tracking domains, and no data
   collected: the app keeps only your choices (language, look, what to practise), on this
   device, in UserDefaults. Plugins and the Flutter engine ship their own manifests.
 -->

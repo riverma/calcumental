@@ -34,7 +34,15 @@ class MenuScreen extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  Semantics(header: true, child: Text(s.appTitle, style: kh.t.poster())),
+                  Semantics(
+                    header: true,
+                    // One word, so it shrinks to fit instead of breaking in the middle.
+                    child: FittedBox(
+                      fit: BoxFit.scaleDown,
+                      alignment: AlignmentDirectional.centerStart,
+                      child: Text(s.appTitle, style: kh.t.poster(), maxLines: 1),
+                    ),
+                  ),
                   const SizedBox(height: Space.s4),
                   Text(s.lead, style: kh.t.lead),
                   const SizedBox(height: Space.s5),
