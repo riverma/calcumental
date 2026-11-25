@@ -6,6 +6,9 @@ All notable changes to this project are documented here. The format follows
 
 ## [Unreleased]
 
+### Changed
+- Renamed from Mental Math to Calcu, in every language, on the home screen, the launch screen, the About text and the privacy policy. The package name and the saved-settings key keep their old identifiers, so nothing a person has chosen is lost.
+
 ### Added
 - An About page, from a small button at the foot of the menu: why the app was made and its
   version. On the web it also has a small Donate button that opens Stripe in the browser.

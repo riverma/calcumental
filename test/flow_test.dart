@@ -154,7 +154,7 @@ void main() {
     await tapVisible(tester, find.bySemanticsLabel('Look: Raat'));
     await tapVisible(tester, find.bySemanticsLabel('Language: हिं'));
     expect((store.saved.look, store.saved.lang), (Look.raat, Lang.hi));
-    expect(find.text('मानसिक गणित'), findsOneWidget);
+    expect(find.text('Calcu'), findsOneWidget);
 
     await tapVisible(tester, find.bySemanticsLabel('चलो खेलें'));
     expect(game.session.total, 20);

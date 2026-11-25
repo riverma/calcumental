@@ -1,4 +1,4 @@
-// Starts Mental Math with everything served from here: the CanvasKit engine from canvaskit/,
+// Starts Calcu with everything served from here: the CanvasKit engine from canvaskit/,
 // and the fallback fonts from fonts/fallback/. Flutter's defaults would fetch both from
 // Google; these settings are why it never does.
 {{flutter_js}}
