@@ -202,3 +202,11 @@ footer a { color: var(--soft); }
 .checks.inline { display: flex; flex-wrap: wrap; gap: .5rem 1.1rem; margin: 1.4rem 0 0; font-size: .92rem; }
 .checks.inline li { padding-left: 1.75rem; white-space: nowrap; }
 .checks.inline li::before { width: 1.35rem; height: 1.35rem; line-height: 1.35rem; font-size: .85rem; }
+
+/* Screenshots are pictures, not the app: dim them, watermark them, and don't let them look pressable. */
+.phone { position: relative; container-type: inline-size; }
+.phone img { cursor: default; user-select: none; -webkit-user-select: none; pointer-events: none; filter: brightness(.82) saturate(.9); }
+.phone .mark { position: absolute; inset: 0; display: grid; place-items: center; pointer-events: none; z-index: 1; }
+.phone .mark span { transform: rotate(-35deg); font-family: "Rozha One", Georgia, serif; font-size: 15cqw; letter-spacing: .06em; white-space: nowrap; color: rgba(255, 255, 255, .62); text-shadow: 0 0 .15em rgba(42, 24, 64, .85), 2px 2px 0 rgba(42, 24, 64, .6); }
+.shot-note { font-size: .95rem; color: var(--soft); margin: 1.1rem 0 0; }
+.shot-note a { font-weight: 800; }

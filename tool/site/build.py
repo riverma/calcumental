@@ -32,6 +32,7 @@ T = {
         play="Play online", store="App Store", soon="Coming soon for iPhone",
         fine='Free and <a href="%s">open source</a>. In English, Español and हिन्दी.' % REPO,
         hero_alt="A multiplication problem, 81 times 8, answered correctly, with a friendly 'That's it!' and a wide Next button",
+        shot_tag="Screenshot", shot_mark="SCREENSHOT", shot_note="This is a screenshot of the app.", shot_try="Try the real thing online.",
         why="Why Calcumental",
         why1="Calcumental was made for a young girl in Mexico who loved numbers and wanted more arithmetic to practise.",
         why2="So it asks one question at a time, waits as long as you like, and does not judge how you did.",
@@ -85,6 +86,7 @@ T = {
         play="Jugar en línea", store="App Store", soon="Próximamente para iPhone",
         fine='Gratis y de <a href="%s">código abierto</a>. En English, Español y हिन्दी.' % REPO,
         hero_alt="Una multiplicación, 81 por 8, respondida correctamente, con un amable mensaje y un botón Siguiente ancho",
+        shot_tag="Captura de pantalla", shot_mark="CAPTURA", shot_note="Esta es una captura de pantalla de la app.", shot_try="Pruébala de verdad en línea.",
         why="Por qué Calcumental",
         why1="Calcumental se hizo para una niña en México a quien le encantaban los números y quería practicar más aritmética.",
         why2="Por eso hace una pregunta a la vez, espera todo el tiempo que quieras y no juzga cómo te fue.",
@@ -138,6 +140,7 @@ T = {
         play="ऑनलाइन खेलें", store="App Store", soon="iPhone के लिए जल्द आ रहा है",
         fine='मुफ़्त और <a href="%s">ओपन सोर्स</a>। English, Español और हिन्दी में।' % REPO,
         hero_alt="गुणा का एक सवाल, 81 × 8, सही हल किया हुआ, एक दोस्ताना संदेश और चौड़े 'अगला' बटन के साथ",
+        shot_tag="स्क्रीनशॉट", shot_mark="स्क्रीनशॉट", shot_note="यह ऐप का स्क्रीनशॉट है।", shot_try="असली ऐप ऑनलाइन आज़माएँ।",
         why="कैल्कुमेंटल क्यों",
         why1="कैल्कुमेंटल मेक्सिको की एक छोटी लड़की के लिए बनाया गया था, जिसे संख्याओं से प्यार था और जो अंकगणित का और अभ्यास करना चाहती थी।",
         why2="इसलिए यह एक बार में एक सवाल पूछता है, जितनी देर चाहें इंतज़ार करता है, और यह नहीं आँकता कि आपने कैसा किया।",
@@ -205,7 +208,7 @@ def page(code: str) -> str:
     for (key, cap), a in zip(t["caps"], t["alts"]):
         name = f"{code}-raat-2-asking" if key == "raat" else f"{code}-mela-{key}"
         shots.append(
-            f'<figure><div class="phone"><img src="{r}assets/screens/{name}.png" alt="{a}" loading="lazy" width="540" height="1168"></div><figcaption>{cap}</figcaption></figure>'
+            f'<figure><div class="phone"><span class="mark" aria-hidden="true"><span>{t["shot_mark"]}</span></span><img src="{r}assets/screens/{name}.png" alt="{t["shot_tag"]}: {a}" loading="lazy" width="540" height="1168" draggable="false"></div><figcaption>{cap}</figcaption></figure>'
         )
     shots = "\n          ".join(shots)
     steps = "\n          ".join(f"<li><h3>{h}</h3><p>{p}</p></li>" for h, p in t["steps"])
@@ -263,7 +266,8 @@ def page(code: str) -> str:
           <p class="fine">{t['fine']}</p>
         </div>
         <div class="hero-shot">
-          <div class="phone"><img src="{r}assets/screens/{code}-mela-4-right.png" alt="{t['hero_alt']}" width="540" height="1168"></div>
+          <div class="phone"><span class="mark" aria-hidden="true"><span>{t['shot_mark']}</span></span><img src="{r}assets/screens/{code}-mela-4-right.png" alt="{t['shot_tag']}: {t['hero_alt']}" width="540" height="1168" draggable="false"></div>
+          <p class="shot-note">{t['shot_note']} <a href="{play}">{t['shot_try']}</a></p>
         </div>
       </div>
     </section>
