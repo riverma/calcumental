@@ -17,6 +17,7 @@ REPO = "https://github.com/riverma/calcumental"
 HOME = "https://riverma.com"
 AGPL = "https://www.gnu.org/licenses/agpl-3.0.html"
 APK = REPO + "/releases/latest/download/Calcumental.apk"
+PLAY_RULE = "https://support.google.com/googleplay/android-developer/answer/14151465"
 HOW_TO = "https://android-developers.googleblog.com/2026/03/android-developer-verification.html"
 
 # Platform marks for the buttons. Inline, so the page still fetches nothing else.
@@ -77,6 +78,7 @@ android="Android", android_small="Free APK download", android_long="Download for
             ("Does it work offline?", "Yes. Everything runs on your device, and it needs no connection at all."),
             ("What does &ldquo;close enough&rdquo; mean?", "It&rsquo;s a way to practise estimating. Instead of needing the exact answer, anything within 5% of it counts (never less than 1 away)."),
             ("Is it open source?", 'Yes, under the AGPL-3.0-or-later. The code is on <a href="%s">GitHub</a>. Its fonts are under the SIL Open Font License.' % REPO),
+            ("Why isn't it on Google Play?", 'Calcumental is a free hobby project, and Google Play asks new personal developer accounts to run a <a href="%s">closed test with at least 12 testers for 14 days</a> before an app can be published. That is a lot of overhead for a small free app, so the Android version is a direct download instead. It is the same app, and the code is open for anyone to check.' % PLAY_RULE),
         ],
         foot='Built by <a href="%s">Rishi Verma</a>. Free software under the <a href="%s">AGPL-3.0-or-later</a>.' % (HOME, AGPL),
         source="Source on GitHub", privacy_anchor="privacy/#en",
@@ -133,6 +135,7 @@ android="Android", android_small="APK gratis", android_long="Descargar para Andr
             ("¿Funciona sin conexión?", "Sí. Todo se ejecuta en tu dispositivo y no necesita conexión alguna."),
             ("¿Qué significa &ldquo;más o menos&rdquo;?", "Es una forma de practicar la estimación. En vez de exigir la respuesta exacta, cuenta cualquier valor a menos del 5% (nunca a menos de 1)."),
             ("¿Es de código abierto?", 'Sí, con la licencia AGPL-3.0-or-later. El código está en <a href="%s">GitHub</a>. Sus tipos de letra están bajo la SIL Open Font License.' % REPO),
+            ("¿Por qué no está en Google Play?", 'Calcumental es un proyecto personal y gratuito, y Google Play pide a las cuentas de desarrollador personales nuevas una <a href="%s">prueba cerrada con al menos 12 probadores durante 14 días</a> antes de publicar una app. Es mucho trabajo para una app pequeña y gratuita, así que la versión para Android es una descarga directa. Es la misma app, y el código está abierto para que cualquiera lo revise.' % PLAY_RULE),
         ],
         foot='Hecha por <a href="%s">Rishi Verma</a>. Software libre bajo la <a href="%s">AGPL-3.0-or-later</a>.' % (HOME, AGPL),
         source="Código en GitHub", privacy_anchor="../privacy/#es",
@@ -189,6 +192,7 @@ android="Android", android_small="मुफ़्त APK डाउनलोड",
             ("क्या यह ऑफ़लाइन चलता है?", "हाँ। सब कुछ आपके डिवाइस पर चलता है, और किसी कनेक्शन की ज़रूरत नहीं है।"),
             ("&ldquo;लगभग सही&rdquo; का क्या मतलब है?", "यह अंदाज़ा लगाने के अभ्यास का तरीक़ा है। सटीक जवाब की जगह, उसके 5% के भीतर कोई भी जवाब सही गिना जाता है (1 से कम दूरी पर कभी नहीं)।"),
             ("क्या यह ओपन सोर्स है?", 'हाँ, AGPL-3.0-or-later के तहत। कोड <a href="%s">GitHub</a> पर है। इसके फ़ॉन्ट SIL Open Font License के तहत हैं।' % REPO),
+            ("यह Google Play पर क्यों नहीं है?", 'Calcumental एक मुफ़्त शौकिया प्रोजेक्ट है, और Google Play नए निजी डेवलपर खातों से ऐप प्रकाशित करने से पहले <a href="%s">कम से कम 12 परीक्षकों के साथ 14 दिन का बंद परीक्षण</a> चलवाता है। एक छोटे, मुफ़्त ऐप के लिए यह काफ़ी झंझट है, इसलिए Android संस्करण सीधे डाउनलोड के रूप में दिया गया है। यह वही ऐप है, और कोड कोई भी जाँचने के लिए खुला है।' % PLAY_RULE),
         ],
         foot='<a href="%s">Rishi Verma</a> द्वारा बनाया गया। <a href="%s">AGPL-3.0-or-later</a> के तहत मुक्त सॉफ़्टवेयर।' % (HOME, AGPL),
         source="GitHub पर स्रोत", privacy_anchor="../privacy/#hi",
