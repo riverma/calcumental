@@ -34,9 +34,8 @@ flutter run                                  # a simulator or a connected iPhone
 flutter run -d chrome
 ```
 
-On your iPhone, first copy `ios/Flutter/Signing.example.xcconfig` to `ios/Flutter/Signing.xcconfig`
-and set your Apple team (git ignores it). With a free Personal Team, builds expire after
-7 days; rebuild to refresh.
+On your iPhone, first choose your own Apple team in Xcode (Runner, Signing & Capabilities).
+With a free Personal Team, builds expire after 7 days; rebuild to refresh.
 
 ```sh
 flutter build ios --release
@@ -63,3 +62,7 @@ CAPTURE=1 flutter test test/capture           # screenshots for review, in build
 `test/small_screen_test.dart` plays every screen at 375×667 and 375×812, at normal and very
 large text, in Mela and Raat, in all three languages. It fails on any overflow or any word
 split across lines.
+
+## Website
+
+`docs/` is the landing page and privacy policy, published with the web app (at `/play/`) by `.github/workflows/pages.yml`. The landing pages in English, Spanish and Hindi are generated: edit `tool/site/build.py`, then run `python3 tool/site/build.py`.

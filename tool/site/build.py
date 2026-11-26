@@ -1,0 +1,348 @@
+#!/usr/bin/env python3
+"""Writes the landing page in English, Spanish and Hindi into docs/.
+
+    python3 tool/site/build.py
+
+One template, three sets of words, so the pages cannot drift apart. The output is plain HTML
+with no script; docs/style.css dresses it.
+"""
+
+from pathlib import Path
+
+DOCS = Path(__file__).resolve().parents[2] / "docs"
+SITE = "https://calcumental.riverma.com"
+AHIMSA = "https://github.com/riverma/ahimsa-design"
+KHELO = "https://khelo-design.riverma.com"
+REPO = "https://github.com/riverma/calcumental"
+HOME = "https://riverma.com"
+AGPL = "https://www.gnu.org/licenses/agpl-3.0.html"
+
+T = {
+    "en": dict(
+        lang="en", prefix="", root="",
+        title="Calcumental: arithmetic to practise at your own pace",
+        desc="Calcumental is a free, open-source arithmetic app for iPhone and the web. Plus, minus, times and divide, at your own pace. No streaks, no scores, no timers, and it works offline.",
+        og="Exercise your mental muscles. Take your time. Arithmetic puzzles with no streaks, no scores and no timers.",
+        nav=[("#story", "Why"), ("#features", "Features"), ("#get", "Get it"), ("privacy/", "Privacy")],
+        github="GitHub",
+        icon_alt="The Calcumental icon: four tiles showing plus, minus, times and divide",
+        tagline="Exercise your mental muscles.",
+        lede="Four operations, three levels, three languages. Practise anywhere, even offline.",
+        checks=["No ads", "No tracking", "No accounts"],
+        play="Play online", store="App Store", soon="Coming soon for iPhone",
+        fine='Free and <a href="%s">open source</a>. In English, Español and हिन्दी.' % REPO,
+        hero_alt="A multiplication problem, 81 times 8, answered correctly, with a friendly 'That's it!' and a wide Next button",
+        why="Why Calcumental",
+        why1="Calcumental was made for a young girl in Mexico who loved numbers and wanted more arithmetic to practise.",
+        why2="So it asks one question at a time, waits as long as you like, and does not judge how you did.",
+        inside="What&rsquo;s inside",
+        inside_sub="Four operations, three levels, and a few small kindnesses that make mental arithmetic easier.",
+        tiles=[
+            ("±", "Arithmetic operations", "Plus, minus, multiply, divide, or mixed mode, which mixes them all together."),
+            ("3", "Easy, Medium, Hard", "From single-digit tables to three-digit sums. Practise exactly what you want."),
+            ("≈", "Close enough, if you like", "Turn on &ldquo;close enough&rdquo; to practise estimating: an answer within 5% counts."),
+            ("↻", "A wrong answer is just a go", "Start typing a new answer straight away, press Try again, or choose Show me. There is no penalty."),
+            ("✈", "Works offline", "Everything runs on your device. No network requests, no analytics, no ads and no accounts."),
+            ("☮", "Follows the Ahimsa design principles", 'Calm by design: no streaks, scores, timers or red marks. <a href="%s">Read about Ahimsa</a>.' % AHIMSA),
+        ],
+        look="Look and feel",
+        look_sub='Built on the <a href="%s">Khelo design system</a>: warm paper, ink outlines, big friendly buttons and block lettering.' % KHELO,
+        caps=[
+            ("1-menu", "Choose what to practise, or just press Let&rsquo;s play."),
+            ("2-asking", "One problem at a time, and a big Check button for your thumb."),
+            ("3-not-quite", "A wrong answer is just another go."),
+            ("4-right", "It waits for you. Move on when you&rsquo;re ready."),
+            ("raat", "Raat, the dark look, for the evening."),
+        ],
+        alts=["The menu with Let's play, Customize and a choice of operations", "A problem waiting for an answer, with a large Check button", "A gentle 'Not quite. Have another go.' with Try again and Show me side by side", "A correct answer and a wide Next button", "The problem screen in the dark look, Raat"],
+        how="How it works",
+        steps=[("Pick", "Press Let&rsquo;s play, or Customize to choose the operation, level and how many problems."), ("Solve", "Type your answer and press Check. If it&rsquo;s not quite right, have another go."), ("Take your time", "Nothing is timed or scored. When the set ends, you see what you did, and you can start another.")],
+        get="Get Calcumental", get_sub="Free, with no ads and no in-app purchases.",
+        store_long="Download on the App Store", soon_long="Coming soon for iPhone and iPad", priv="Privacy policy",
+        get_fine="The web version runs in your browser and works offline once it has loaded. You can add it to your Home Screen.",
+        faq="Questions",
+        qa=[
+            ("Does it collect any data?", 'No. There are no accounts, no analytics and no ads, and the app makes no network requests. It remembers only your choices (language, look, what to practise), on your own device. Read the <a href="privacy/#en">privacy policy</a>.'),
+            ("Why no streaks or scores?", "Calcumental is for practising without pressure. It never times you, ranks you or tells you how you compare, so the only person you&rsquo;re working with is you."),
+            ("Does it work offline?", "Yes. Everything runs on your device, and it needs no connection at all."),
+            ("What does &ldquo;close enough&rdquo; mean?", "It&rsquo;s a way to practise estimating. Instead of needing the exact answer, anything within 5% of it counts (never less than 1 away)."),
+            ("Is it open source?", 'Yes, under the AGPL-3.0-or-later. The code is on <a href="%s">GitHub</a>. Its fonts are under the SIL Open Font License.' % REPO),
+        ],
+        foot='Built by <a href="%s">Rishi Verma</a>. Free software under the <a href="%s">AGPL-3.0-or-later</a>.' % (HOME, AGPL),
+        source="Source on GitHub", privacy_anchor="privacy/#en",
+    ),
+    "es": dict(
+        lang="es", prefix="es/", root="../",
+        title="Calcumental: aritmética para practicar a tu ritmo",
+        desc="Calcumental es una app de aritmética gratuita y de código abierto para iPhone y la web. Sumas, restas, multiplicaciones y divisiones, a tu ritmo. Sin rachas, sin puntajes, sin cronómetros, y funciona sin conexión.",
+        og="Ejercita tu mente. Tómate tu tiempo. Acertijos de aritmética sin rachas, sin puntajes y sin cronómetros.",
+        nav=[("#story", "Por qué"), ("#features", "Qué incluye"), ("#get", "Obtenerla"), ("../privacy/#es", "Privacidad")],
+        github="GitHub",
+        icon_alt="El ícono de Calcumental: cuatro fichas con suma, resta, multiplicación y división",
+        tagline="Ejercita tu mente.",
+        lede="Cuatro operaciones, tres niveles, tres idiomas. Practica donde sea, incluso sin conexión.",
+        checks=["Sin anuncios", "Sin rastreo", "Sin cuentas"],
+        play="Jugar en línea", store="App Store", soon="Próximamente para iPhone",
+        fine='Gratis y de <a href="%s">código abierto</a>. En English, Español y हिन्दी.' % REPO,
+        hero_alt="Una multiplicación, 81 por 8, respondida correctamente, con un amable mensaje y un botón Siguiente ancho",
+        why="Por qué Calcumental",
+        why1="Calcumental se hizo para una niña en México a quien le encantaban los números y quería practicar más aritmética.",
+        why2="Por eso hace una pregunta a la vez, espera todo el tiempo que quieras y no juzga cómo te fue.",
+        inside="Qué incluye",
+        inside_sub="Cuatro operaciones, tres niveles y pequeños detalles que hacen más fácil el cálculo mental.",
+        tiles=[
+            ("±", "Operaciones aritméticas", "Suma, resta, multiplicación, división, o el modo mixto, que las combina todas."),
+            ("3", "Fácil, medio, difícil", "De las tablas de un dígito a las sumas de tres dígitos. Practica justo lo que quieras."),
+            ("≈", "Más o menos, si quieres", "Activa &ldquo;más o menos&rdquo; para practicar la estimación: cuenta una respuesta a menos del 5%."),
+            ("↻", "Una respuesta incorrecta es solo otro intento", "Empieza a escribir otra respuesta de inmediato, pulsa Otra vez o elige Muéstramelo. No hay penalización."),
+            ("✈", "Funciona sin conexión", "Todo se ejecuta en tu dispositivo. Sin conexiones de red, sin analíticas, sin anuncios y sin cuentas."),
+            ("☮", "Sigue los principios de diseño Ahimsa", 'Tranquila por diseño: sin rachas, puntajes, cronómetros ni marcas rojas. <a href="%s">Conoce Ahimsa</a>.' % AHIMSA),
+        ],
+        look="Aspecto",
+        look_sub='Hecha con el <a href="%s">sistema de diseño Khelo</a>: papel cálido, contornos de tinta, botones grandes y amables, y letras de bloque.' % KHELO,
+        caps=[
+            ("1-menu", "Elige qué practicar, o solo pulsa A jugar."),
+            ("2-asking", "Un problema a la vez, y un botón Comprobar grande para tu pulgar."),
+            ("3-not-quite", "Una respuesta incorrecta es solo otro intento."),
+            ("4-right", "Te espera. Sigue cuando estés listo."),
+            ("raat", "Raat, el aspecto oscuro, para la noche."),
+        ],
+        alts=["El menú con A jugar, Personalizar y una elección de operaciones", "Un problema esperando respuesta, con un botón Comprobar grande", "Un amable 'Todavía no' con Otra vez y Muéstramelo lado a lado", "Una respuesta correcta y un botón Siguiente ancho", "La pantalla del problema en el aspecto oscuro, Raat"],
+        how="Cómo funciona",
+        steps=[("Elige", "Pulsa A jugar, o Personalizar para elegir la operación, el nivel y cuántos problemas."), ("Resuelve", "Escribe tu respuesta y pulsa Comprobar. Si todavía no es correcta, prueba otra vez."), ("Tómate tu tiempo", "Nada se mide ni se puntúa. Cuando termina la serie, ves lo que hiciste y puedes empezar otra.")],
+        get="Obtén Calcumental", get_sub="Gratis, sin anuncios y sin compras dentro de la app.",
+        store_long="Descárgala en el App Store", soon_long="Próximamente para iPhone y iPad", priv="Política de privacidad",
+        get_fine="La versión web se ejecuta en tu navegador y funciona sin conexión una vez cargada. Puedes añadirla a tu pantalla de inicio.",
+        faq="Preguntas",
+        qa=[
+            ("¿Recoge algún dato?", 'No. No hay cuentas, ni analíticas, ni anuncios, y la app no hace conexiones de red. Solo recuerda tus elecciones (idioma, aspecto, qué practicar), en tu propio dispositivo. Lee la <a href="../privacy/#es">política de privacidad</a>.'),
+            ("¿Por qué sin rachas ni puntajes?", "Calcumental es para practicar sin presión. Nunca te cronometra, te clasifica ni te compara, así que la única persona con la que trabajas eres tú."),
+            ("¿Funciona sin conexión?", "Sí. Todo se ejecuta en tu dispositivo y no necesita conexión alguna."),
+            ("¿Qué significa &ldquo;más o menos&rdquo;?", "Es una forma de practicar la estimación. En vez de exigir la respuesta exacta, cuenta cualquier valor a menos del 5% (nunca a menos de 1)."),
+            ("¿Es de código abierto?", 'Sí, con la licencia AGPL-3.0-or-later. El código está en <a href="%s">GitHub</a>. Sus tipos de letra están bajo la SIL Open Font License.' % REPO),
+        ],
+        foot='Hecha por <a href="%s">Rishi Verma</a>. Software libre bajo la <a href="%s">AGPL-3.0-or-later</a>.' % (HOME, AGPL),
+        source="Código en GitHub", privacy_anchor="../privacy/#es",
+    ),
+    "hi": dict(
+        lang="hi", prefix="hi/", root="../",
+        title="कैल्कुमेंटल: अपनी रफ़्तार से अंकगणित का अभ्यास",
+        desc="कैल्कुमेंटल iPhone और वेब के लिए मुफ़्त, ओपन-सोर्स अंकगणित ऐप है। जोड़, घटाना, गुणा और भाग, अपनी रफ़्तार से। न स्ट्रीक, न स्कोर, न टाइमर, और ऑफ़लाइन चलता है।",
+        og="अपने दिमाग़ की कसरत करें। आराम से। न स्ट्रीक, न स्कोर, न टाइमर वाली अंकगणित की पहेलियाँ।",
+        nav=[("#story", "क्यों"), ("#features", "क्या है अंदर"), ("#get", "पाएँ"), ("../privacy/#hi", "गोपनीयता")],
+        github="GitHub",
+        icon_alt="कैल्कुमेंटल का आइकन: जोड़, घटाना, गुणा और भाग दिखाती चार टाइलें",
+        tagline="अपने दिमाग़ की कसरत करें।",
+        lede="चार क्रियाएँ, तीन स्तर, तीन भाषाएँ। कहीं भी अभ्यास करें, ऑफ़लाइन भी।",
+        checks=["कोई विज्ञापन नहीं", "कोई ट्रैकिंग नहीं", "कोई खाता नहीं"],
+        play="ऑनलाइन खेलें", store="App Store", soon="iPhone के लिए जल्द आ रहा है",
+        fine='मुफ़्त और <a href="%s">ओपन सोर्स</a>। English, Español और हिन्दी में।' % REPO,
+        hero_alt="गुणा का एक सवाल, 81 × 8, सही हल किया हुआ, एक दोस्ताना संदेश और चौड़े 'अगला' बटन के साथ",
+        why="कैल्कुमेंटल क्यों",
+        why1="कैल्कुमेंटल मेक्सिको की एक छोटी लड़की के लिए बनाया गया था, जिसे संख्याओं से प्यार था और जो अंकगणित का और अभ्यास करना चाहती थी।",
+        why2="इसलिए यह एक बार में एक सवाल पूछता है, जितनी देर चाहें इंतज़ार करता है, और यह नहीं आँकता कि आपने कैसा किया।",
+        inside="अंदर क्या है",
+        inside_sub="चार क्रियाएँ, तीन स्तर, और कुछ छोटी-छोटी बातें जो मन ही मन गणित को आसान बनाती हैं।",
+        tiles=[
+            ("±", "अंकगणित की क्रियाएँ", "जोड़, घटाना, गुणा, भाग, या मिला-जुला मोड, जो सबको एक साथ मिला देता है।"),
+            ("3", "आसान, मध्यम, कठिन", "एक अंक के पहाड़ों से लेकर तीन अंकों के जोड़ तक। जो चाहें वही अभ्यास करें।"),
+            ("≈", "लगभग सही भी चलेगा", "अंदाज़ा लगाने के अभ्यास के लिए &ldquo;लगभग सही&rdquo; चालू करें: 5% के भीतर का जवाब सही गिना जाता है।"),
+            ("↻", "ग़लत जवाब बस एक और कोशिश है", "तुरंत नया जवाब लिखना शुरू करें, &lsquo;फिर से&rsquo; दबाएँ, या &lsquo;जवाब दिखाएँ&rsquo; चुनें। कोई जुर्माना नहीं।"),
+            ("✈", "ऑफ़लाइन चलता है", "सब कुछ आपके डिवाइस पर चलता है। न नेटवर्क अनुरोध, न एनालिटिक्स, न विज्ञापन, न खाते।"),
+            ("☮", "अहिंसा डिज़ाइन सिद्धांतों पर चलता है", 'डिज़ाइन से ही शांत: न स्ट्रीक, न स्कोर, न टाइमर, न लाल निशान। <a href="%s">अहिंसा के बारे में पढ़ें</a>।' % AHIMSA),
+        ],
+        look="रूप और अनुभव",
+        look_sub='<a href="%s">खेलो डिज़ाइन सिस्टम</a> पर बना: गर्म कागज़ जैसा रंग, स्याही की रेखाएँ, बड़े दोस्ताना बटन और ब्लॉक अक्षर।' % KHELO,
+        caps=[
+            ("1-menu", "क्या अभ्यास करना है चुनें, या बस &lsquo;चलो खेलें&rsquo; दबाएँ।"),
+            ("2-asking", "एक बार में एक सवाल, और आपके अँगूठे के लिए बड़ा &lsquo;जाँचें&rsquo; बटन।"),
+            ("3-not-quite", "ग़लत जवाब बस एक और कोशिश है।"),
+            ("4-right", "यह आपका इंतज़ार करता है। तैयार हों तब आगे बढ़ें।"),
+            ("raat", "रात, गहरा रूप, शाम के लिए।"),
+        ],
+        alts=["चलो खेलें, अपना खेल चुनें और क्रियाओं के चुनाव वाला मेन्यू", "जवाब का इंतज़ार करता एक सवाल, बड़े &lsquo;जाँचें&rsquo; बटन के साथ", "&lsquo;अभी नहीं&rsquo; का नरम संदेश, &lsquo;फिर से&rsquo; और &lsquo;जवाब दिखाएँ&rsquo; साथ-साथ", "सही जवाब और चौड़ा &lsquo;अगला&rsquo; बटन", "गहरे रूप, रात, में सवाल की स्क्रीन"],
+        how="यह कैसे काम करता है",
+        steps=[("चुनें", "&lsquo;चलो खेलें&rsquo; दबाएँ, या &lsquo;अपना खेल चुनें&rsquo; से क्रिया, स्तर और सवालों की संख्या चुनें।"), ("हल करें", "अपना जवाब लिखें और &lsquo;जाँचें&rsquo; दबाएँ। अगर अभी सही नहीं है, तो एक बार और कोशिश करें।"), ("आराम से", "कुछ भी समय या अंकों से नहीं नापा जाता। सेट पूरा होने पर आप देखते हैं कि आपने क्या किया, और दूसरा सेट शुरू कर सकते हैं।")],
+        get="कैल्कुमेंटल पाएँ", get_sub="मुफ़्त, बिना विज्ञापन और बिना इन-ऐप ख़रीद के।",
+        store_long="App Store पर डाउनलोड करें", soon_long="iPhone और iPad के लिए जल्द आ रहा है", priv="गोपनीयता नीति",
+        get_fine="वेब संस्करण आपके ब्राउज़र में चलता है और एक बार लोड होने के बाद ऑफ़लाइन भी चलता है। आप इसे अपनी होम स्क्रीन पर जोड़ सकते हैं।",
+        faq="सवाल",
+        qa=[
+            ("क्या यह कोई डेटा इकट्ठा करता है?", 'नहीं। कोई खाता नहीं, कोई एनालिटिक्स नहीं, कोई विज्ञापन नहीं, और ऐप कोई नेटवर्क अनुरोध नहीं करता। यह सिर्फ़ आपकी पसंद (भाषा, रूप, क्या अभ्यास करना है) आपके अपने डिवाइस पर याद रखता है। <a href="../privacy/#hi">गोपनीयता नीति</a> पढ़ें।'),
+            ("स्ट्रीक या स्कोर क्यों नहीं?", "कैल्कुमेंटल बिना दबाव के अभ्यास के लिए है। यह कभी आपका समय नहीं नापता, आपको रैंक नहीं देता और दूसरों से तुलना नहीं करता, इसलिए आप सिर्फ़ अपने साथ काम करते हैं।"),
+            ("क्या यह ऑफ़लाइन चलता है?", "हाँ। सब कुछ आपके डिवाइस पर चलता है, और किसी कनेक्शन की ज़रूरत नहीं है।"),
+            ("&ldquo;लगभग सही&rdquo; का क्या मतलब है?", "यह अंदाज़ा लगाने के अभ्यास का तरीक़ा है। सटीक जवाब की जगह, उसके 5% के भीतर कोई भी जवाब सही गिना जाता है (1 से कम दूरी पर कभी नहीं)।"),
+            ("क्या यह ओपन सोर्स है?", 'हाँ, AGPL-3.0-or-later के तहत। कोड <a href="%s">GitHub</a> पर है। इसके फ़ॉन्ट SIL Open Font License के तहत हैं।' % REPO),
+        ],
+        foot='<a href="%s">Rishi Verma</a> द्वारा बनाया गया। <a href="%s">AGPL-3.0-or-later</a> के तहत मुक्त सॉफ़्टवेयर।' % (HOME, AGPL),
+        source="GitHub पर स्रोत", privacy_anchor="../privacy/#hi",
+    ),
+}
+
+LANGS = [("en", "English", ""), ("es", "Español", "es/"), ("hi", "हिन्दी", "hi/")]
+
+
+def page(code: str) -> str:
+    t = T[code]
+    r = t["root"]  # path back to docs/
+    here = t["prefix"]
+
+    nav = "\n        ".join(f'<a href="{h}">{l}</a>' for h, l in t["nav"])
+    def switch_link(c: str, n: str, p: str) -> str:
+        href = (r + p) if r else (p or "./")
+        current = ' aria-current="page"' if c == code else ""
+        return f'<a href="{href}" lang="{c}"{current}>{n}</a>'
+
+    switch = " ".join(switch_link(c, n, p) for c, n, p in LANGS)
+    alt = "\n  ".join(
+        f'<link rel="alternate" hreflang="{c}" href="{SITE}/{p}">' for c, _, p in LANGS
+    ) + f'\n  <link rel="alternate" hreflang="x-default" href="{SITE}/">'
+    tiles = "\n          ".join(
+        f'<div class="tile"><div class="sign" aria-hidden="true">{s}</div><h3>{h}</h3><p>{p}</p></div>'
+        for s, h, p in t["tiles"]
+    )
+    shots = []
+    for (key, cap), a in zip(t["caps"], t["alts"]):
+        name = f"{code}-raat-2-asking" if key == "raat" else f"{code}-mela-{key}"
+        shots.append(
+            f'<figure><div class="phone"><img src="{r}assets/screens/{name}.png" alt="{a}" loading="lazy" width="540" height="1168"></div><figcaption>{cap}</figcaption></figure>'
+        )
+    shots = "\n          ".join(shots)
+    steps = "\n          ".join(f"<li><h3>{h}</h3><p>{p}</p></li>" for h, p in t["steps"])
+    qa = "\n          ".join(f"<details><summary>{q}</summary><p>{a}</p></details>" for q, a in t["qa"])
+    checks = "".join(f"<li>{c}</li>" for c in t["checks"])
+    play = f"{r}play/" if r else "play/"
+    privacy = t["privacy_anchor"]
+    return f"""<!doctype html>
+<html lang="{t['lang']}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Generated by tool/site/build.py. No scripts, and nothing fetched from anywhere else. -->
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'none'; img-src 'self'; font-src 'self'; style-src 'self'; base-uri 'none'; form-action 'none'">
+  <title>{t['title']}</title>
+  <meta name="description" content="{t['desc']}">
+  <meta name="color-scheme" content="light dark">
+  <link rel="icon" href="{r}assets/icon-512.png" type="image/png">
+  <link rel="apple-touch-icon" href="{r}assets/icon-512.png">
+  <link rel="stylesheet" href="{r}style.css">
+  {alt}
+  <meta property="og:title" content="Calcumental">
+  <meta property="og:description" content="{t['og']}">
+  <meta property="og:image" content="{SITE}/assets/icon-512.png">
+  <meta property="og:url" content="{SITE}/{here}">
+  <meta name="twitter:card" content="summary">
+</head>
+<body>
+  <div class="kangura" aria-hidden="true"></div>
+  <header>
+    <div class="wrap">
+      <a class="brand" href="#top"><img src="{r}assets/icon-512.png" alt="" width="34" height="34">Calcumental</a>
+      <nav aria-label="Sections">
+        {nav}
+        <a href="{REPO}">{t['github']}</a>
+      </nav>
+      <div class="lang" role="navigation" aria-label="Language">{switch}</div>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <img class="icon" src="{r}assets/icon-512.png" alt="{t['icon_alt']}" width="112" height="112">
+          <h1>{'कैल्कुमेंटल' if code == 'hi' else 'Calcumental'}</h1>
+          <p class="tagline">{t['tagline']}</p>
+          <p class="lede">{t['lede']}</p>
+          <ul class="checks inline">{checks}</ul>
+          <div class="actions">
+            <a class="btn btn-primary" href="{play}">{t['play']}</a>
+            <span class="btn" aria-disabled="true" role="link"><span>{t['store']}<small>{t['soon']}</small></span></span>
+          </div>
+          <p class="fine">{t['fine']}</p>
+        </div>
+        <div class="hero-shot">
+          <div class="phone"><img src="{r}assets/screens/{code}-mela-4-right.png" alt="{t['hero_alt']}" width="540" height="1168"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="story" class="story">
+      <div class="wrap">
+        <div class="narrow">
+          <h2>{t['why']}</h2>
+          <p>{t['why1']}</p>
+          <p class="big">{t['why2']}</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="features">
+      <div class="wrap">
+        <h2>{t['inside']}</h2>
+        <p class="soft narrow">{t['inside_sub']}</p>
+        <div class="grid">
+          {tiles}
+        </div>
+      </div>
+    </section>
+
+    <section id="screens" style="padding-top:0">
+      <div class="wrap">
+        <h2>{t['look']}</h2>
+        <p class="soft narrow">{t['look_sub']}</p>
+        <div class="shots">
+          {shots}
+        </div>
+      </div>
+    </section>
+
+    <section id="how" style="padding-top:0">
+      <div class="wrap">
+        <h2>{t['how']}</h2>
+        <ol class="steps">
+          {steps}
+        </ol>
+      </div>
+    </section>
+
+    <section id="get" class="get">
+      <div class="wrap">
+        <h2>{t['get']}</h2>
+        <p class="soft narrow">{t['get_sub']}</p>
+        <div class="actions">
+          <span class="btn" aria-disabled="true" role="link"><span>{t['store_long']}<small>{t['soon_long']}</small></span></span>
+          <a class="btn btn-primary" href="{play}">{t['play']}</a>
+          <a class="btn" href="{privacy}">{t['priv']}</a>
+        </div>
+        <p class="fine">{t['get_fine']}</p>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="wrap">
+        <h2>{t['faq']}</h2>
+        <div class="faq">
+          {qa}
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <p>{t['foot']}</p>
+      <p><a href="{privacy}">{t['priv']}</a> · <a href="{REPO}">{t['source']}</a> · <a href="{play}">{t['play']}</a></p>
+    </div>
+  </footer>
+</body>
+</html>
+"""
+
+
+for code in T:
+    out = DOCS / T[code]["prefix"] / "index.html"
+    out.parent.mkdir(parents=True, exist_ok=True)
+    out.write_text(page(code), encoding="utf-8")
+    print("wrote", out.relative_to(DOCS.parent))

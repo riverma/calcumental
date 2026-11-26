@@ -1,0 +1,56 @@
+# Builds the web app and publishes the whole site to GitHub Pages: the landing page and
+# privacy policy from docs/, and the playable app at /play/. Settings, Pages, Source must be
+# "GitHub Actions".
+name: Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+      - run: flutter pub get
+      - run: flutter analyze
+      - run: flutter test
+      - run: dart run tool/check_attention.dart
+      - name: Build the web app
+        run: flutter build web --no-web-resources-cdn --pwa-strategy=none --release --base-href /play/
+      - run: dart run tool/build_sw.dart
+      - run: dart run tool/check_offline.dart
+      - run: dart run tool/check_licenses.dart
+      - name: Assemble the site
+        run: |
+          mkdir -p _site
+          cp -R docs/. _site/
+          mkdir -p _site/play
+          cp -R build/web/. _site/play/
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

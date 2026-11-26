@@ -6,6 +6,13 @@ All notable changes to this project are documented here. The format follows
 
 ## [Unreleased]
 
+### Added
+- A landing page in English, Español and हिन्दी (`docs/`, built by `tool/site/build.py`), and a GitHub Actions workflow that builds the web app and publishes the site, with the app at `/play/`.
+- The privacy policy now lists, with green check marks, what the app does not do, and is also in Hindi.
+
+### Fixed
+- Moving between screens no longer flickers: every icon is decoded once, before the first screen, instead of on each mount.
+
 ### Changed
 - The privacy policy now lives at <https://calcumental.riverma.com/privacy/>, and the About page links there.
 - After a "not quite", typing starts a fresh answer and backspace trims the old one; Try again is still there but no longer needed.

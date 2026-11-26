@@ -31,5 +31,4 @@ dart run tool/check_licenses.dart
 
 Semantic versioning. Keep the version in `pubspec.yaml`, `appVersion` in `lib/game.dart`
 and `CHANGELOG.md` in step. Cut a GitHub release on every minor and major bump. Never push
-without an explicit go-ahead, and review the diff for secrets first. The Apple team id lives
-in `ios/Flutter/Signing.xcconfig`, which git ignores.
+without an explicit go-ahead, and review the diff for secrets first.

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <!-- No scripts at all; the one inline stylesheet is allowed by its hash. -->
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'none'; style-src 'sha256-zm5nYnZS9RiObrlMaotm3y622VnKcSGTlNrP0jM+8Jg='; font-src 'self'; base-uri 'none'; form-action 'none'">
+  <title>Privacy · Calcumental</title>
+  <meta name="description" content="Calcumental collects nothing, tracks nothing and shares nothing.">
+  <meta name="color-scheme" content="light dark">
+  <style>
+    @font-face { font-family: "Baloo 2"; src: url("../assets/assets/fonts/Baloo2-VariableFont.ttf"); font-weight: 400 800; }
+    @font-face { font-family: "Rozha One"; src: url("../assets/assets/fonts/RozhaOne-Regular.ttf"); }
+    :root { --page: #fbf0d9; --ink: #2a1840; --soft: #4a3a5c; --link: #1660b0; --rule: #2a1840; }
+    @media (prefers-color-scheme: dark) {
+      :root { --page: #14103a; --ink: #fbefd6; --soft: #c9c0e2; --link: #72b2ff; --rule: #c9c0e2; }
+    }
+    html { background: var(--page); color: var(--ink); }
+    body {
+      margin: 0 auto; max-width: 40rem; padding: 2.5rem 1rem 4rem;
+      font: 400 1.125rem/1.55 "Baloo 2", system-ui, sans-serif;
+    }
+    h1, h2 { font-family: "Rozha One", Georgia, serif; font-weight: 400; line-height: 1.1; margin: 0 0 1rem; }
+    h1 { font-size: 2.6rem; }
+    h2 { font-size: 1.6rem; margin-top: 2.25rem; }
+    p, ul { margin: 0 0 1rem; }
+    li { margin-bottom: .4rem; }
+    .date { color: var(--soft); font-size: .9rem; }
+    a { color: var(--link); text-underline-offset: .15em; }
+    hr { border: 0; border-top: 3px solid var(--rule); margin: 3rem 0 2.5rem; }
+    nav { margin: 0 0 2rem; display: flex; gap: 1.2rem; flex-wrap: wrap; font-size: 1rem; }
+    .checks { list-style: none; padding: 0; margin: 0 0 1.5rem; }
+    .checks li { padding-left: 2rem; position: relative; margin-bottom: .5rem; font-weight: 600; }
+    .checks li::before { content: "✓"; position: absolute; left: 0; top: 0; width: 1.45rem; height: 1.45rem; line-height: 1.45rem; text-align: center; border-radius: 50%; background: var(--ok); color: #fff; font-weight: 800; font-size: .95rem; }
+    :root { --ok: #1a7f37; }
+    @media (prefers-color-scheme: dark) { :root { --ok: #2ea043; } }
+  </style>
+</head>
+<body>
+  <nav aria-label="Language"><a href="#en">English</a> <a href="#es">Español</a> <a href="#hi">हिन्दी</a></nav>
+
+  <main id="en" lang="en">
+    <h1>Privacy</h1>
+    <p class="date">Calcumental · In effect from 14 November 2026</p>
+
+    <p>Calcumental collects nothing, tracks nothing and shares nothing:</p>
+    <ul class="checks">
+      <li>No ads</li>
+      <li>No tracking</li>
+      <li>No accounts</li>
+    </ul>
+
+    <h2>What stays on your device</h2>
+    <p>For convenience, the app remembers your preferences, so it opens the way you left it.
+    They are stored only on your device, never sent anywhere, and nothing about how you did is
+    kept. Deleting the app, or clearing this site's data in your browser, removes them.</p>
+
+    <h2>Changes</h2>
+    <p>If this policy ever changes, the new version will be posted here with a new date.</p>
+  </main>
+
+  <hr>
+
+  <main id="es" lang="es">
+    <h1>Privacidad</h1>
+    <p class="date">Calcumental · Vigente desde el 14 de noviembre de 2026</p>
+
+    <p>Calcumental no recoge nada, no rastrea nada y no comparte nada:</p>
+    <ul class="checks">
+      <li>Sin anuncios</li>
+      <li>Sin rastreo</li>
+      <li>Sin cuentas</li>
+    </ul>
+
+    <h2>Lo que se queda en tu dispositivo</h2>
+    <p>Para tu comodidad, la app recuerda tus preferencias y se abre como la dejaste. Se
+    guardan solo en tu dispositivo, nunca se envían a ningún lado, y no se guarda nada sobre
+    cómo te fue. Al borrar la app, o los datos de este sitio en tu navegador, se eliminan.</p>
+
+    <h2>Cambios</h2>
+    <p>Si esta política cambia, la nueva versión se publicará aquí con una fecha nueva.</p>
+  </main>
+
+  <hr>
+
+  <main id="hi" lang="hi">
+    <h1>गोपनीयता</h1>
+    <p class="date">कैल्कुमेंटल · 14 नवंबर 2026 से लागू</p>
+
+    <p>कैल्कुमेंटल कुछ भी एकत्र नहीं करता, आपको ट्रैक नहीं करता और कुछ भी साझा नहीं करता:</p>
+    <ul class="checks">
+      <li>कोई विज्ञापन नहीं</li>
+      <li>कोई ट्रैकिंग नहीं</li>
+      <li>कोई खाता नहीं</li>
+    </ul>
+
+    <h2>आपके डिवाइस पर क्या रहता है</h2>
+    <p>सुविधा के लिए, ऐप आपकी पसंद (भाषा, रूप, और क्या अभ्यास करना है) याद रखता है, ताकि वह उसी तरह
+    खुले जैसा आपने उसे छोड़ा था। यह केवल आपके डिवाइस पर रहती है, कहीं भेजी नहीं जाती, और आपने कैसा किया,
+    इसके बारे में कुछ भी सहेजा नहीं जाता। ऐप हटाने पर, या ब्राउज़र में इस साइट का डेटा साफ़ करने पर,
+    यह मिट जाती है।</p>
+
+    <h2>बदलाव</h2>
+    <p>यदि यह नीति कभी बदलती है, तो नया संस्करण नई तारीख के साथ यहीं प्रकाशित किया जाएगा।</p>
+  </main>
+</body>
+</html>
