@@ -87,7 +87,8 @@ T = {
         steps=[("Pick", "Press Let&rsquo;s play, or Customize to choose the operation, level and how many problems."), ("Solve", "Type your answer and press Check. If it&rsquo;s not quite right, have another go."), ("Take your time", "Nothing is timed or scored. When the set ends, you see what you did, and you can start another.")],
         get="Download", notes="Notes", get_sub="Free, with no ads and no in-app purchases.",
         store_long="Download for iOS", soon_long="Coming soon for iPhone and iPad", priv="Privacy policy",
-android="Android", android_small="Free APK download", instructions="Instructions", updated="Last updated", android_long="Download for Android", android_long_small="Free APK download",
+android="Android", android_small="Free APK download", instructions="Instructions", updated="Last updated",
+        hero_web="Web", hero_web_sub="Play for free online", hero_ios="iOS", hero_ios_sub="Coming soon", hero_android="Android", hero_android_sub="Download APK", android_long="Download for Android", android_long_small="Free APK download",
         and_note='Not on Google Play. <a href="%s">Steps to install it, from Google</a>.' % HOW_TO,
         get_fine="The web version runs in your browser and works offline once it has loaded. You can add it to your Home Screen.",
         faq="Frequently asked questions",
@@ -145,7 +146,8 @@ android="Android", android_small="Free APK download", instructions="Instructions
         steps=[("Elige", "Pulsa A jugar, o Personalizar para elegir la operación, el nivel y cuántos problemas."), ("Resuelve", "Escribe tu respuesta y pulsa Comprobar. Si todavía no es correcta, prueba otra vez."), ("Tómate tu tiempo", "Nada se mide ni se puntúa. Cuando termina la serie, ves lo que hiciste y puedes empezar otra.")],
         get="Descargar", notes="Notas", get_sub="Gratis, sin anuncios y sin compras dentro de la app.",
         store_long="Descargar para iOS", soon_long="Próximamente para iPhone y iPad", priv="Política de privacidad",
-android="Android", android_small="APK gratis", instructions="Instrucciones", updated="Última actualización", android_long="Descargar para Android", android_long_small="APK gratis",
+android="Android", android_small="APK gratis", instructions="Instrucciones", updated="Última actualización",
+        hero_web="Web", hero_web_sub="Juega gratis en línea", hero_ios="iOS", hero_ios_sub="Próximamente", hero_android="Android", hero_android_sub="Descargar APK", android_long="Descargar para Android", android_long_small="APK gratis",
         and_note='No está en Google Play. <a href="%s">Pasos para instalarla, de Google</a> (en inglés).' % HOW_TO,
         get_fine="La versión web se ejecuta en tu navegador y funciona sin conexión una vez cargada. Puedes añadirla a tu pantalla de inicio.",
         faq="Preguntas frecuentes",
@@ -203,7 +205,8 @@ android="Android", android_small="APK gratis", instructions="Instrucciones", upd
         steps=[("चुनें", "&lsquo;चलो खेलें&rsquo; दबाएँ, या &lsquo;अपना खेल चुनें&rsquo; से क्रिया, स्तर और सवालों की संख्या चुनें।"), ("हल करें", "अपना जवाब लिखें और &lsquo;जाँचें&rsquo; दबाएँ। अगर अभी सही नहीं है, तो एक बार और कोशिश करें।"), ("आराम से", "कुछ भी समय या अंकों से नहीं नापा जाता। सेट पूरा होने पर आप देखते हैं कि आपने क्या किया, और दूसरा सेट शुरू कर सकते हैं।")],
         get="डाउनलोड", notes="नोट", get_sub="मुफ़्त, बिना विज्ञापन और बिना इन-ऐप ख़रीद के।",
         store_long="iOS के लिए डाउनलोड करें", soon_long="iPhone और iPad के लिए जल्द आ रहा है", priv="गोपनीयता नीति",
-android="Android", android_small="मुफ़्त APK डाउनलोड", instructions="निर्देश", updated="अंतिम अपडेट", android_long="Android के लिए डाउनलोड करें", android_long_small="मुफ़्त APK डाउनलोड",
+android="Android", android_small="मुफ़्त APK डाउनलोड", instructions="निर्देश", updated="अंतिम अपडेट",
+        hero_web="वेब", hero_web_sub="ऑनलाइन मुफ़्त खेलें", hero_ios="iOS", hero_ios_sub="जल्द आ रहा है", hero_android="Android", hero_android_sub="APK डाउनलोड करें", android_long="Android के लिए डाउनलोड करें", android_long_small="मुफ़्त APK डाउनलोड",
         and_note='Google Play पर नहीं है। <a href="%s">इंस्टॉल करने के चरण, Google की ओर से</a> (अंग्रेज़ी में)।' % HOW_TO,
         get_fine="वेब संस्करण आपके ब्राउज़र में चलता है और एक बार लोड होने के बाद ऑफ़लाइन भी चलता है। आप इसे अपनी होम स्क्रीन पर जोड़ सकते हैं।",
         faq="अक्सर पूछे जाने वाले सवाल",
@@ -262,6 +265,14 @@ def page(code: str) -> str:
         f'<a class="stretch" href="{APK}">{t["android_long"]}</a>'
         f'<small>{t["android_small"]}<br><a class="inst" href="{HOW_TO}">{t["instructions"]}</a></small></span></span>'
     )
+    # The hero's compact versions: same look, shorter words.
+    hero_play = f'<a class="btn btn-primary" href="{play}">{GLOBE}<span>{t["hero_web"]}<small>{t["hero_web_sub"]}</small></span></a>'
+    hero_ios = f'<span class="btn" aria-disabled="true" role="link">{APPLE}<span>{t["hero_ios"]}<small>{t["hero_ios_sub"]}</small></span></span>'
+    hero_android = (
+        f'<span class="btn android"><span class="ic">{ANDROID}</span><span>'
+        f'<a class="stretch" href="{APK}">{t["hero_android"]}</a>'
+        f'<small>{t["hero_android_sub"]}<br><a class="inst" href="{HOW_TO}">{t["instructions"]}</a></small></span></span>'
+    )
     privacy = t["privacy_anchor"]
     return f"""<!doctype html>
 <html lang="{t['lang']}">
@@ -306,9 +317,9 @@ def page(code: str) -> str:
           <p class="lede">{t['lede']}</p>
           <ul class="checks inline">{checks}</ul>
           <div class="actions">
-            {btn_play}
-            {btn_ios}
-            {btn_android}
+            {hero_play}
+            {hero_ios}
+            {hero_android}
           </div>
           <p class="fine">{t['fine']}</p>
         </div>
