@@ -85,7 +85,7 @@ T = {
         alts=["The menu with Let's play, Customize and a choice of operations", "A problem waiting for an answer, with a large Check button", "A gentle 'Not quite. Have another go.' with Try again and Show me side by side", "A correct answer and a wide Next button", "The problem screen in the dark look, Raat"],
         how="How it works",
         steps=[("Pick", "Press Let&rsquo;s play, or Customize to choose the operation, level and how many problems."), ("Solve", "Type your answer and press Check. If it&rsquo;s not quite right, have another go."), ("Take your time", "Nothing is timed or scored. When the set ends, you see what you did, and you can start another.")],
-        get="Download Calcumental", get_sub="Free, with no ads and no in-app purchases.",
+        get="Download", notes="Notes", get_sub="Free, with no ads and no in-app purchases.",
         store_long="Download for iOS", soon_long="Coming soon for iPhone and iPad", priv="Privacy policy",
 android="Android", android_small="Free APK download", instructions="Instructions", updated="Last updated", android_long="Download for Android", android_long_small="Free APK download",
         and_note='Not on Google Play. <a href="%s">Steps to install it, from Google</a>.' % HOW_TO,
@@ -143,7 +143,7 @@ android="Android", android_small="Free APK download", instructions="Instructions
         alts=["El menú con A jugar, Personalizar y una elección de operaciones", "Un problema esperando respuesta, con un botón Comprobar grande", "Un amable 'Todavía no' con Otra vez y Muéstramelo lado a lado", "Una respuesta correcta y un botón Siguiente ancho", "La pantalla del problema en el aspecto oscuro, Raat"],
         how="Cómo funciona",
         steps=[("Elige", "Pulsa A jugar, o Personalizar para elegir la operación, el nivel y cuántos problemas."), ("Resuelve", "Escribe tu respuesta y pulsa Comprobar. Si todavía no es correcta, prueba otra vez."), ("Tómate tu tiempo", "Nada se mide ni se puntúa. Cuando termina la serie, ves lo que hiciste y puedes empezar otra.")],
-        get="Descarga Calcumental", get_sub="Gratis, sin anuncios y sin compras dentro de la app.",
+        get="Descargar", notes="Notas", get_sub="Gratis, sin anuncios y sin compras dentro de la app.",
         store_long="Descargar para iOS", soon_long="Próximamente para iPhone y iPad", priv="Política de privacidad",
 android="Android", android_small="APK gratis", instructions="Instrucciones", updated="Última actualización", android_long="Descargar para Android", android_long_small="APK gratis",
         and_note='No está en Google Play. <a href="%s">Pasos para instalarla, de Google</a> (en inglés).' % HOW_TO,
@@ -201,7 +201,7 @@ android="Android", android_small="APK gratis", instructions="Instrucciones", upd
         alts=["चलो खेलें, अपना खेल चुनें और क्रियाओं के चुनाव वाला मेन्यू", "जवाब का इंतज़ार करता एक सवाल, बड़े &lsquo;जाँचें&rsquo; बटन के साथ", "&lsquo;अभी नहीं&rsquo; का नरम संदेश, &lsquo;फिर से&rsquo; और &lsquo;जवाब दिखाएँ&rsquo; साथ-साथ", "सही जवाब और चौड़ा &lsquo;अगला&rsquo; बटन", "गहरे रूप, रात, में सवाल की स्क्रीन"],
         how="यह कैसे काम करता है",
         steps=[("चुनें", "&lsquo;चलो खेलें&rsquo; दबाएँ, या &lsquo;अपना खेल चुनें&rsquo; से क्रिया, स्तर और सवालों की संख्या चुनें।"), ("हल करें", "अपना जवाब लिखें और &lsquo;जाँचें&rsquo; दबाएँ। अगर अभी सही नहीं है, तो एक बार और कोशिश करें।"), ("आराम से", "कुछ भी समय या अंकों से नहीं नापा जाता। सेट पूरा होने पर आप देखते हैं कि आपने क्या किया, और दूसरा सेट शुरू कर सकते हैं।")],
-        get="कैल्कुमेंटल डाउनलोड करें", get_sub="मुफ़्त, बिना विज्ञापन और बिना इन-ऐप ख़रीद के।",
+        get="डाउनलोड", notes="नोट", get_sub="मुफ़्त, बिना विज्ञापन और बिना इन-ऐप ख़रीद के।",
         store_long="iOS के लिए डाउनलोड करें", soon_long="iPhone और iPad के लिए जल्द आ रहा है", priv="गोपनीयता नीति",
 android="Android", android_small="मुफ़्त APK डाउनलोड", instructions="निर्देश", updated="अंतिम अपडेट", android_long="Android के लिए डाउनलोड करें", android_long_small="मुफ़्त APK डाउनलोड",
         and_note='Google Play पर नहीं है। <a href="%s">इंस्टॉल करने के चरण, Google की ओर से</a> (अंग्रेज़ी में)।' % HOW_TO,
@@ -361,15 +361,17 @@ def page(code: str) -> str:
     <section id="get" class="get">
       <div class="wrap">
         <h2>{t['get']}</h2>
-        <p class="soft narrow">{t['get_sub']}</p>
         <div class="actions">
           {btn_play}
           {btn_ios}
           {btn_android}
           <a class="btn" href="{privacy}">{t['priv']}</a>
         </div>
-        <p class="fine">{t['and_note']}</p>
-        <p class="fine">{t['get_fine']}</p>
+        <p class="fine notes-h"><strong>{t['notes']}</strong></p>
+        <ul class="notes">
+          <li>{t['and_note']}</li>
+          <li>{t['get_fine']}</li>
+        </ul>
       </div>
     </section>
 

@@ -227,3 +227,7 @@ code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .
 .btn.android a.stretch::after { content: ""; position: absolute; inset: 0; border-radius: 999px; }
 .btn.android a.inst { position: relative; z-index: 1; text-decoration: underline; text-underline-offset: .15em; }
 .btn.android:hover { transform: translate(-1px, -1px); box-shadow: 6px 6px 0 var(--shadow-ink); }
+
+.notes-h { margin: 1.4rem 0 .2rem; }
+.notes { margin: 0; padding-left: 1.3rem; font-size: .95rem; color: var(--soft); }
+.notes li { margin: .3rem 0; }
