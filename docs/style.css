@@ -213,8 +213,6 @@ footer a { color: var(--soft); }
 /* Platform marks on buttons */
 .btn svg { width: 1.5em; height: 1.5em; flex: none; }
 .btn > span { text-align: left; }
-.hero .btn { padding-inline: 1.1rem; gap: .5rem; }
-.hero .actions { gap: .9rem; }
 
 code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .85em; background: var(--card); border: 1px solid var(--line); border-radius: .4em; padding: .05em .35em; overflow-wrap: anywhere; }
 
