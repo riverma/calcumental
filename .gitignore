@@ -63,4 +63,7 @@ ios/Flutter/Signing.xcconfig
 # Android release signing (the keystore itself lives outside the repo)
 android/key.properties
 *.jks
+*.apk
+*.aab
+*.ipa
 *.keystore

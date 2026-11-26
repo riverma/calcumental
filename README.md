@@ -66,6 +66,15 @@ For a release, `tool/android_release.sh` builds the APK as `build/release/Calcum
 files to the GitHub release and paste the checksum into its notes. The website's "How can I check
 the Android download?" answer lists the signer fingerprint, which never changes between releases.
 
+## iOS build
+
+```sh
+tool/ios_release.sh      # build/ios/ipa/Calcumental.ipa, ready for Transporter
+```
+
+Raise the build number in `pubspec.yaml` (`version: X.Y.Z+N`) and commit it first; every upload needs a
+higher `N`. The team id lives in the git-ignored `ios/Flutter/Signing.xcconfig`.
+
 ## Test
 
 ```sh
