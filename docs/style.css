@@ -149,8 +149,7 @@ h1 { font-size: clamp(3rem, 9vw, 5.4rem); color: var(--ink); text-shadow: 3px 3p
 /* Screens */
 .shots { display: grid; grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr)); gap: 1.4rem; margin-top: 2rem; align-items: start; }
 .shots figure { margin: 0; }
-.shots .phone { aspect-ratio: 9 / 16; }
-.shots .phone img { height: 100%; object-fit: cover; object-position: top; }
+.shots .phone img { aspect-ratio: 9 / 16; height: auto; object-fit: cover; object-position: top; }
 .shots figcaption { font-size: 1rem; color: var(--soft); margin-top: .8rem; }
 
 /* Steps */
@@ -184,8 +183,7 @@ footer a { color: var(--soft); }
 }
 
 /* The hero's phone shows the top of the screen, not the empty space beneath it. */
-.hero-shot .phone { aspect-ratio: 4 / 5; }
-.hero-shot .phone img { height: 100%; object-fit: cover; object-position: top; }
+.hero-shot .phone img { aspect-ratio: 4 / 5; height: auto; object-fit: cover; object-position: top; }
 
 /* Language switcher */
 .lang { display: flex; gap: .3rem; font-weight: 700; font-size: .95rem; }
@@ -205,8 +203,17 @@ footer a { color: var(--soft); }
 
 /* Screenshots are pictures, not the app: dim them, watermark them, and don't let them look pressable. */
 .phone { position: relative; container-type: inline-size; }
-.phone img { cursor: default; user-select: none; -webkit-user-select: none; pointer-events: none; filter: brightness(.82) saturate(.9); }
+.phone img { cursor: default; user-select: none; -webkit-user-select: none; pointer-events: none; display: block; }
+.hero-shot .phone img { filter: brightness(.82) saturate(.9); }
 .phone .mark { position: absolute; inset: 0; display: grid; place-items: center; pointer-events: none; z-index: 1; }
 .phone .mark span { transform: rotate(-35deg); font-family: "Rozha One", Georgia, serif; font-size: 15cqw; letter-spacing: .06em; white-space: nowrap; color: rgba(255, 255, 255, .62); text-shadow: 0 0 .15em rgba(42, 24, 64, .85), 2px 2px 0 rgba(42, 24, 64, .6); }
 .shot-note { font-size: .95rem; color: var(--soft); margin: 1.1rem 0 0; }
 .shot-note a { font-weight: 800; }
+
+/* Platform marks on buttons */
+.btn svg { width: 1.5em; height: 1.5em; flex: none; }
+.btn > span { text-align: left; }
+.fine.narrow { max-width: 46rem; }
+#android { padding-top: 0; }
+.hero .btn { padding-inline: 1.1rem; gap: .5rem; }
+.hero .actions { gap: .9rem; }

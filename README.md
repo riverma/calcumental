@@ -50,6 +50,17 @@ dart run tool/build_sw.dart          # precache everything, so it opens with the
 dart run tool/check_offline.dart     # fails on any reference to another origin
 ```
 
+## Android build
+
+```sh
+flutter build apk --release      # build/app/outputs/flutter-apk/app-release.apk
+```
+
+Release builds are signed with the key named in `android/key.properties` (git-ignored; see
+`android/app/build.gradle.kts`). Without it, the build falls back to the debug key, which is fine
+for trying the app but not for sharing. The APK is not on Google Play; the website links to the
+latest GitHub release instead.
+
 ## Test
 
 ```sh

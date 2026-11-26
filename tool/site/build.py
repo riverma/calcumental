@@ -16,6 +16,14 @@ KHELO = "https://khelo-design.riverma.com"
 REPO = "https://github.com/riverma/calcumental"
 HOME = "https://riverma.com"
 AGPL = "https://www.gnu.org/licenses/agpl-3.0.html"
+APK = REPO + "/releases/latest/download/Calcumental.apk"
+RELEASES = REPO + "/releases/latest"
+VERIFY = "https://developer.android.com/developer-verification"
+
+# Platform marks for the buttons. Inline, so the page still fetches nothing else.
+GLOBE = '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9.2"/><ellipse cx="12" cy="12" rx="4" ry="9.2"/><path d="M3 12h18"/></g></svg>'
+APPLE = '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="currentColor"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg>'
+ANDROID = '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" fill-rule="evenodd" d="M5.5 17a6.5 6.5 0 0 1 13 0Z M10.5 13.6a.9.9 0 1 0-1.8 0 .9.9 0 0 0 1.8 0Z M15.3 13.6a.9.9 0 1 0-1.8 0 .9.9 0 0 0 1.8 0Z"/><path d="M8 6.4l1.5 2.3M16 6.4l-1.5 2.3" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>' 
 
 T = {
     "en": dict(
@@ -35,7 +43,7 @@ T = {
         shot_tag="Screenshot", shot_mark="SCREENSHOT", shot_note="This is a screenshot of the app.", shot_try="Try the real thing online.",
         why="Why Calcumental",
         why1="Calcumental was made for a young girl in Mexico who loved numbers and wanted more arithmetic to practise.",
-        why2="So it asks one question at a time, waits as long as you like, and does not judge how you did.",
+        why2="So the idea of the app was born. It asks one question at a time, waits as long as you like, and does not judge how you did.",
         inside="What&rsquo;s inside",
         inside_sub="Four operations, three levels, and a few small kindnesses that make mental arithmetic easier.",
         tiles=[
@@ -60,6 +68,11 @@ T = {
         steps=[("Pick", "Press Let&rsquo;s play, or Customize to choose the operation, level and how many problems."), ("Solve", "Type your answer and press Check. If it&rsquo;s not quite right, have another go."), ("Take your time", "Nothing is timed or scored. When the set ends, you see what you did, and you can start another.")],
         get="Get Calcumental", get_sub="Free, with no ads and no in-app purchases.",
         store_long="Download on the App Store", soon_long="Coming soon for iPhone and iPad", priv="Privacy policy",
+android="Android", android_small="Free APK download", android_long="Download for Android", android_long_small="APK, Android 7 or later",
+        and_note='Not on Google Play. <a href="#android">How to install the APK</a>.',
+        and_h="Install on Android", and_sub="Calcumental isn&rsquo;t on Google Play, so you install the file yourself. It takes about a minute.",
+        and_steps=[("Download","Press <strong>Download for Android</strong>. Your browser may warn that this type of file can harm your device. Keep it."),("Allow your browser to install it","Open the file. If Android asks, allow your browser to install apps: Settings &rarr; Apps &rarr; Special app access &rarr; Install unknown apps, then choose your browser and switch on Allow from this source. Menu names vary a little by phone."),("Install","Tap Install, then Open. You can switch the setting off again afterwards.")],
+        and_fine='Google is adding <a href="%s">developer verification</a> for apps installed outside Google Play. On some phones, an app from an unverified developer needs an extra one-time &ldquo;advanced flow&rdquo; step before it installs, so please check that page for the current rules. The file&rsquo;s checksum is on the <a href="%s">release page</a>.' % (VERIFY, RELEASES),
         get_fine="The web version runs in your browser and works offline once it has loaded. You can add it to your Home Screen.",
         faq="Questions",
         qa=[
@@ -89,7 +102,7 @@ T = {
         shot_tag="Captura de pantalla", shot_mark="CAPTURA", shot_note="Esta es una captura de pantalla de la app.", shot_try="Pruébala de verdad en línea.",
         why="Por qué Calcumental",
         why1="Calcumental se hizo para una niña en México a quien le encantaban los números y quería practicar más aritmética.",
-        why2="Por eso hace una pregunta a la vez, espera todo el tiempo que quieras y no juzga cómo te fue.",
+        why2="Así nació la idea de la app. Hace una pregunta a la vez, espera todo el tiempo que quieras y no juzga cómo te fue.",
         inside="Qué incluye",
         inside_sub="Cuatro operaciones, tres niveles y pequeños detalles que hacen más fácil el cálculo mental.",
         tiles=[
@@ -114,6 +127,11 @@ T = {
         steps=[("Elige", "Pulsa A jugar, o Personalizar para elegir la operación, el nivel y cuántos problemas."), ("Resuelve", "Escribe tu respuesta y pulsa Comprobar. Si todavía no es correcta, prueba otra vez."), ("Tómate tu tiempo", "Nada se mide ni se puntúa. Cuando termina la serie, ves lo que hiciste y puedes empezar otra.")],
         get="Obtén Calcumental", get_sub="Gratis, sin anuncios y sin compras dentro de la app.",
         store_long="Descárgala en el App Store", soon_long="Próximamente para iPhone y iPad", priv="Política de privacidad",
+android="Android", android_small="APK gratis", android_long="Descargar para Android", android_long_small="APK, Android 7 o posterior",
+        and_note='No está en Google Play. <a href="#android">Cómo instalar el APK</a>.',
+        and_h="Instalar en Android", and_sub="Calcumental no está en Google Play, así que instalas el archivo tú mismo. Lleva alrededor de un minuto.",
+        and_steps=[("Descarga","Pulsa <strong>Descargar para Android</strong>. Tu navegador puede avisar de que este tipo de archivo podría dañar el dispositivo. Consérvalo."),("Permite que tu navegador instale","Abre el archivo. Si Android lo pide, permite que tu navegador instale apps: Ajustes &rarr; Apps &rarr; Acceso especial de apps &rarr; Instalar apps desconocidas, elige tu navegador y activa Permitir desde esta fuente. Los nombres de los menús varían un poco según el teléfono."),("Instala","Toca Instalar y luego Abrir. Después puedes volver a desactivar el ajuste.")],
+        and_fine='Google está añadiendo la <a href="%s">verificación de desarrolladores</a> para las apps instaladas fuera de Google Play. En algunos teléfonos, una app de un desarrollador sin verificar necesita un paso extra único, el &ldquo;flujo avanzado&rdquo;, antes de instalarse; consulta esa página para ver las reglas actuales. La suma de verificación del archivo está en la <a href="%s">página de la versión</a>.' % (VERIFY, RELEASES),
         get_fine="La versión web se ejecuta en tu navegador y funciona sin conexión una vez cargada. Puedes añadirla a tu pantalla de inicio.",
         faq="Preguntas",
         qa=[
@@ -143,7 +161,7 @@ T = {
         shot_tag="स्क्रीनशॉट", shot_mark="स्क्रीनशॉट", shot_note="यह ऐप का स्क्रीनशॉट है।", shot_try="असली ऐप ऑनलाइन आज़माएँ।",
         why="कैल्कुमेंटल क्यों",
         why1="कैल्कुमेंटल मेक्सिको की एक छोटी लड़की के लिए बनाया गया था, जिसे संख्याओं से प्यार था और जो अंकगणित का और अभ्यास करना चाहती थी।",
-        why2="इसलिए यह एक बार में एक सवाल पूछता है, जितनी देर चाहें इंतज़ार करता है, और यह नहीं आँकता कि आपने कैसा किया।",
+        why2="इसी तरह इस ऐप का विचार जन्मा। यह एक बार में एक सवाल पूछता है, जितनी देर चाहें इंतज़ार करता है, और यह नहीं आँकता कि आपने कैसा किया।",
         inside="अंदर क्या है",
         inside_sub="चार क्रियाएँ, तीन स्तर, और कुछ छोटी-छोटी बातें जो मन ही मन गणित को आसान बनाती हैं।",
         tiles=[
@@ -168,6 +186,11 @@ T = {
         steps=[("चुनें", "&lsquo;चलो खेलें&rsquo; दबाएँ, या &lsquo;अपना खेल चुनें&rsquo; से क्रिया, स्तर और सवालों की संख्या चुनें।"), ("हल करें", "अपना जवाब लिखें और &lsquo;जाँचें&rsquo; दबाएँ। अगर अभी सही नहीं है, तो एक बार और कोशिश करें।"), ("आराम से", "कुछ भी समय या अंकों से नहीं नापा जाता। सेट पूरा होने पर आप देखते हैं कि आपने क्या किया, और दूसरा सेट शुरू कर सकते हैं।")],
         get="कैल्कुमेंटल पाएँ", get_sub="मुफ़्त, बिना विज्ञापन और बिना इन-ऐप ख़रीद के।",
         store_long="App Store पर डाउनलोड करें", soon_long="iPhone और iPad के लिए जल्द आ रहा है", priv="गोपनीयता नीति",
+android="Android", android_small="मुफ़्त APK डाउनलोड", android_long="Android के लिए डाउनलोड करें", android_long_small="APK, Android 7 या उसके बाद",
+        and_note='Google Play पर नहीं है। <a href="#android">APK कैसे इंस्टॉल करें</a>।',
+        and_h="Android पर इंस्टॉल करें", and_sub="Calcumental Google Play पर नहीं है, इसलिए फ़ाइल आपको ख़ुद इंस्टॉल करनी होगी। इसमें करीब एक मिनट लगता है।",
+        and_steps=[("डाउनलोड करें","<strong>Android के लिए डाउनलोड करें</strong> दबाएँ। आपका ब्राउज़र चेतावनी दे सकता है कि इस तरह की फ़ाइल डिवाइस को नुक़सान पहुँचा सकती है। फ़ाइल रखें।"),("ब्राउज़र को इंस्टॉल करने दें","फ़ाइल खोलें। अगर Android पूछे, तो अपने ब्राउज़र को ऐप इंस्टॉल करने दें: Settings &rarr; Apps &rarr; Special app access &rarr; Install unknown apps, फिर अपना ब्राउज़र चुनें और Allow from this source चालू करें। फ़ोन के अनुसार मेन्यू के नाम थोड़े अलग हो सकते हैं।"),("इंस्टॉल करें","Install दबाएँ, फिर Open। बाद में आप यह सेटिंग फिर बंद कर सकते हैं।")],
+        and_fine='Google, Google Play के बाहर इंस्टॉल होने वाले ऐप के लिए <a href="%s">डेवलपर सत्यापन</a> जोड़ रहा है। कुछ फ़ोन पर, असत्यापित डेवलपर के ऐप को इंस्टॉल होने से पहले एक बार का अतिरिक्त &ldquo;advanced flow&rdquo; चरण चाहिए होता है, इसलिए मौजूदा नियमों के लिए वह पेज देखें। फ़ाइल का चेकसम <a href="%s">रिलीज़ पेज</a> पर है।' % (VERIFY, RELEASES),
         get_fine="वेब संस्करण आपके ब्राउज़र में चलता है और एक बार लोड होने के बाद ऑफ़लाइन भी चलता है। आप इसे अपनी होम स्क्रीन पर जोड़ सकते हैं।",
         faq="सवाल",
         qa=[
@@ -208,11 +231,12 @@ def page(code: str) -> str:
     for (key, cap), a in zip(t["caps"], t["alts"]):
         name = f"{code}-raat-2-asking" if key == "raat" else f"{code}-mela-{key}"
         shots.append(
-            f'<figure><div class="phone"><span class="mark" aria-hidden="true"><span>{t["shot_mark"]}</span></span><img src="{r}assets/screens/{name}.png" alt="{t["shot_tag"]}: {a}" loading="lazy" width="540" height="1168" draggable="false"></div><figcaption>{cap}</figcaption></figure>'
+            f'<figure><div class="phone"><img src="{r}assets/screens/{name}.png" alt="{a}" width="540" height="1168" decoding="async" draggable="false"></div><figcaption>{cap}</figcaption></figure>'
         )
     shots = "\n          ".join(shots)
     steps = "\n          ".join(f"<li><h3>{h}</h3><p>{p}</p></li>" for h, p in t["steps"])
     qa = "\n          ".join(f"<details><summary>{q}</summary><p>{a}</p></details>" for q, a in t["qa"])
+    and_steps = "\n          ".join(f"<li><h3>{h}</h3><p>{p}</p></li>" for h, p in t["and_steps"])
     checks = "".join(f"<li>{c}</li>" for c in t["checks"])
     play = f"{r}play/" if r else "play/"
     privacy = t["privacy_anchor"]
@@ -260,8 +284,9 @@ def page(code: str) -> str:
           <p class="lede">{t['lede']}</p>
           <ul class="checks inline">{checks}</ul>
           <div class="actions">
-            <a class="btn btn-primary" href="{play}">{t['play']}</a>
-            <span class="btn" aria-disabled="true" role="link"><span>{t['store']}<small>{t['soon']}</small></span></span>
+            <a class="btn btn-primary" href="{play}">{GLOBE}<span>{t['play']}</span></a>
+            <span class="btn" aria-disabled="true" role="link">{APPLE}<span>{t['store']}<small>{t['soon']}</small></span></span>
+            <a class="btn" href="{APK}">{ANDROID}<span>{t['android']}<small>{t['android_small']}</small></span></a>
           </div>
           <p class="fine">{t['fine']}</p>
         </div>
@@ -316,11 +341,24 @@ def page(code: str) -> str:
         <h2>{t['get']}</h2>
         <p class="soft narrow">{t['get_sub']}</p>
         <div class="actions">
-          <span class="btn" aria-disabled="true" role="link"><span>{t['store_long']}<small>{t['soon_long']}</small></span></span>
-          <a class="btn btn-primary" href="{play}">{t['play']}</a>
+          <span class="btn" aria-disabled="true" role="link">{APPLE}<span>{t['store_long']}<small>{t['soon_long']}</small></span></span>
+          <a class="btn btn-primary" href="{play}">{GLOBE}<span>{t['play']}</span></a>
+          <a class="btn" href="{APK}">{ANDROID}<span>{t['android_long']}<small>{t['android_long_small']}</small></span></a>
           <a class="btn" href="{privacy}">{t['priv']}</a>
         </div>
+        <p class="fine">{t['and_note']}</p>
         <p class="fine">{t['get_fine']}</p>
+      </div>
+    </section>
+
+    <section id="android">
+      <div class="wrap">
+        <h2>{t['and_h']}</h2>
+        <p class="soft narrow">{t['and_sub']}</p>
+        <ol class="steps">
+          {and_steps}
+        </ol>
+        <p class="fine narrow">{t['and_fine']}</p>
       </div>
     </section>
 

@@ -60,5 +60,7 @@ ios/Runner/GeneratedPluginRegistrant.*
 # Your Apple Developer team id (see ios/Flutter/Signing.example.xcconfig)
 ios/Flutter/Signing.xcconfig
 
-# Android is not a target (iPhone and web only)
-/android/
+# Android release signing (the keystore itself lives outside the repo)
+android/key.properties
+*.jks
+*.keystore

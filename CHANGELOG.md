@@ -8,9 +8,11 @@ All notable changes to this project are documented here. The format follows
 
 ### Added
 - A landing page in English, Español and हिन्दी (`docs/`, built by `tool/site/build.py`), and a GitHub Actions workflow that builds the web app and publishes the site, with the app at `/play/`.
+- An Android build: a signed APK that can be installed directly (not on Google Play), with a download button and install steps on the website. Release signing comes from a git-ignored `android/key.properties`; without it, release builds fall back to the debug key.
 - The privacy policy now lists, with green check marks, what the app does not do, and is also in Hindi.
 
 ### Fixed
+- The website's Look and feel screenshots now all load: they no longer depend on a parent's height (which some browsers size to zero, so lazy images never loaded).
 - Moving between screens no longer flickers: every icon is decoded once, before the first screen, instead of on each mount.
 
 ### Changed
