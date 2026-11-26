@@ -61,6 +61,11 @@ Release builds are signed with the key named in `android/key.properties` (git-ig
 for trying the app but not for sharing. The APK is not on Google Play; the website links to the
 latest GitHub release instead.
 
+For a release, `tool/android_release.sh` builds the APK as `build/release/Calcumental.apk`, writes
+`Calcumental.apk.sha256` beside it and prints the checksum and signer fingerprint. Attach both
+files to the GitHub release and paste the checksum into its notes. The website's "How can I check
+the Android download?" answer lists the signer fingerprint, which never changes between releases.
+
 ## Test
 
 ```sh

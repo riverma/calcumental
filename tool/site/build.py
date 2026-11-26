@@ -17,7 +17,9 @@ REPO = "https://github.com/riverma/calcumental"
 HOME = "https://riverma.com"
 AGPL = "https://www.gnu.org/licenses/agpl-3.0.html"
 APK = REPO + "/releases/latest/download/Calcumental.apk"
+CERT_SHA256 = "17:78:CE:35:14:1D:6C:39:BB:23:28:5E:2A:4E:E8:54:58:6F:D4:A5:F1:07:BB:58:92:09:F7:BC:75:07:57:B1"
 PLAY_RULE = "https://support.google.com/googleplay/android-developer/answer/14151465"
+RELEASES = REPO + "/releases/latest"
 HOW_TO = "https://android-developers.googleblog.com/2026/03/android-developer-verification.html"
 
 # Platform marks for the buttons. Inline, so the page still fetches nothing else.
@@ -79,6 +81,7 @@ android="Android", android_small="Free APK download", android_long="Download for
             ("What does &ldquo;close enough&rdquo; mean?", "It&rsquo;s a way to practise estimating. Instead of needing the exact answer, anything within 5% of it counts (never less than 1 away)."),
             ("Is it open source?", 'Yes, under the AGPL-3.0-or-later. The code is on <a href="%s">GitHub</a>. Its fonts are under the SIL Open Font License.' % REPO),
             ("Why isn't it on Google Play?", 'Calcumental is free and open source, and Google Play asks new personal developer accounts to run a <a href="%s">closed test with at least 12 testers for 14 days</a> before an app can be published. That is a lot of overhead and too taxing for me to do for every release, so the Android version is a direct download instead. It is the same app, and the code is open for anyone to check.' % PLAY_RULE),
+            ("How can I check the Android download?", 'Two ways. <strong>The file:</strong> each <a href="%s">release page</a> lists the SHA-256 checksum of the APK and has a <code>.sha256</code> file. Compare it with <code>shasum -a 256 Calcumental.apk</code> (or <code>certutil -hashfile Calcumental.apk SHA256</code> on Windows). <strong>The signer:</strong> every release is signed with the same key, so <code>apksigner verify --print-certs Calcumental.apk</code> should show this certificate SHA-256: <code>%s</code>. If either differs, don&rsquo;t install it.' % (RELEASES, CERT_SHA256)),
         ],
         foot='Built by <a href="%s">Rishi Verma</a>. Free software under the <a href="%s">AGPL-3.0-or-later</a>.' % (HOME, AGPL),
         source="Source on GitHub", privacy_anchor="privacy/#en",
@@ -136,6 +139,7 @@ android="Android", android_small="APK gratis", android_long="Descargar para Andr
             ("¿Qué significa &ldquo;más o menos&rdquo;?", "Es una forma de practicar la estimación. En vez de exigir la respuesta exacta, cuenta cualquier valor a menos del 5% (nunca a menos de 1)."),
             ("¿Es de código abierto?", 'Sí, con la licencia AGPL-3.0-or-later. El código está en <a href="%s">GitHub</a>. Sus tipos de letra están bajo la SIL Open Font License.' % REPO),
             ("¿Por qué no está en Google Play?", 'Calcumental es gratuito y de código abierto, y Google Play pide a las cuentas de desarrollador personales nuevas una <a href="%s">prueba cerrada con al menos 12 probadores durante 14 días</a> antes de publicar una app. Es mucha carga y demasiado agotador para mí hacerlo con cada versión, así que la versión para Android es una descarga directa. Es la misma app, y el código está abierto para que cualquiera lo revise.' % PLAY_RULE),
+            ("¿Cómo compruebo la descarga de Android?", 'De dos maneras. <strong>El archivo:</strong> cada <a href="%s">página de versión</a> indica la suma SHA-256 del APK y tiene un archivo <code>.sha256</code>. Compárala con <code>shasum -a 256 Calcumental.apk</code> (o <code>certutil -hashfile Calcumental.apk SHA256</code> en Windows). <strong>El firmante:</strong> todas las versiones se firman con la misma clave, así que <code>apksigner verify --print-certs Calcumental.apk</code> debe mostrar este SHA-256 del certificado: <code>%s</code>. Si algo no coincide, no la instales.' % (RELEASES, CERT_SHA256)),
         ],
         foot='Hecha por <a href="%s">Rishi Verma</a>. Software libre bajo la <a href="%s">AGPL-3.0-or-later</a>.' % (HOME, AGPL),
         source="Código en GitHub", privacy_anchor="../privacy/#es",
@@ -193,6 +197,7 @@ android="Android", android_small="मुफ़्त APK डाउनलोड",
             ("&ldquo;लगभग सही&rdquo; का क्या मतलब है?", "यह अंदाज़ा लगाने के अभ्यास का तरीक़ा है। सटीक जवाब की जगह, उसके 5% के भीतर कोई भी जवाब सही गिना जाता है (1 से कम दूरी पर कभी नहीं)।"),
             ("क्या यह ओपन सोर्स है?", 'हाँ, AGPL-3.0-or-later के तहत। कोड <a href="%s">GitHub</a> पर है। इसके फ़ॉन्ट SIL Open Font License के तहत हैं।' % REPO),
             ("यह Google Play पर क्यों नहीं है?", 'Calcumental मुफ़्त और ओपन सोर्स है, और Google Play नए निजी डेवलपर खातों से ऐप प्रकाशित करने से पहले <a href="%s">कम से कम 12 परीक्षकों के साथ 14 दिन का बंद परीक्षण</a> चलवाता है। यह काफ़ी झंझट है और हर रिलीज़ के लिए इसे करना मेरे लिए बहुत थकाऊ है, इसलिए Android संस्करण सीधे डाउनलोड के रूप में दिया गया है। यह वही ऐप है, और कोड कोई भी जाँचने के लिए खुला है।' % PLAY_RULE),
+            ("Android डाउनलोड की जाँच कैसे करूँ?", 'दो तरीक़े। <strong>फ़ाइल:</strong> हर <a href="%s">रिलीज़ पेज</a> पर APK का SHA-256 चेकसम लिखा है और एक <code>.sha256</code> फ़ाइल भी है। उसे <code>shasum -a 256 Calcumental.apk</code> (Windows पर <code>certutil -hashfile Calcumental.apk SHA256</code>) से मिलाएँ। <strong>हस्ताक्षर करने वाला:</strong> हर रिलीज़ एक ही कुंजी से साइन होती है, इसलिए <code>apksigner verify --print-certs Calcumental.apk</code> में यह सर्टिफ़िकेट SHA-256 दिखना चाहिए: <code>%s</code>। अगर कुछ भी न मिले, तो इंस्टॉल न करें।' % (RELEASES, CERT_SHA256)),
         ],
         foot='<a href="%s">Rishi Verma</a> द्वारा बनाया गया। <a href="%s">AGPL-3.0-or-later</a> के तहत मुक्त सॉफ़्टवेयर।' % (HOME, AGPL),
         source="GitHub पर स्रोत", privacy_anchor="../privacy/#hi",
