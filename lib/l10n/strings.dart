@@ -71,13 +71,12 @@ class S {
   String outcome(Outcome o) => _f('outcome.${o.name}');
 
   /// The language's own name for itself, for the switcher.
-  static const langLabel = {Lang.en: 'EN', Lang.es: 'ES', Lang.hi: 'हिं'};
   static const langName = {Lang.en: 'English', Lang.es: 'Español', Lang.hi: 'हिन्दी'};
 }
 
 const _all = <Lang, Map<String, String>>{
   Lang.en: {
-    'appTitle': 'Matheos',
+    'appTitle': 'Calcumental',
     'lead': 'Exercise your mental muscles. Take your time.',
     'letsPlay': 'Let’s play',
     'chooseOwn': 'Customize',
@@ -103,11 +102,11 @@ const _all = <Lang, Map<String, String>>{
     'look.raat': 'Raat',
     'version': 'Version: {v}',
     'donate': 'Donate',
-    'privacyPolicy': 'Privacy',
+    'privacyPolicy': 'View privacy policy',
     'about': 'About',
     'back': 'Back',
     'aboutStory':
-        'Matheos was made for a young girl in Mexico who loved numbers and wanted more arithmetic to practice.',
+        'Calcumental was made for a young girl in Mexico who loved numbers and wanted more arithmetic to practice.',
     'aboutSharp': 'It turns out a lot of people could use it. A little practice keeps the mind sharp.',
     'stop': 'Stop',
     'steps': '{n} of {total}',
@@ -135,7 +134,7 @@ const _all = <Lang, Map<String, String>>{
     'menu': 'Back to the menu',
   },
   Lang.es: {
-    'appTitle': 'Matheos',
+    'appTitle': 'Calcumental',
     'lead': 'Ejercita tus músculos mentales. Sin prisa.',
     'letsPlay': 'A jugar',
     'chooseOwn': 'Personalizar',
@@ -161,11 +160,11 @@ const _all = <Lang, Map<String, String>>{
     'look.raat': 'Raat',
     'version': 'Versión: {v}',
     'donate': 'Donar',
-    'privacyPolicy': 'Privacidad',
+    'privacyPolicy': 'Ver política de privacidad',
     'about': 'Acerca de',
     'back': 'Volver',
     'aboutStory':
-        'Matheos se hizo para una niña en México a quien le encantaban los números y quería practicar más aritmética.',
+        'Calcumental se hizo para una niña en México a quien le encantaban los números y quería practicar más aritmética.',
     'aboutSharp': 'Resulta que a mucha gente le sirve. Un poco de práctica mantiene la mente ágil.',
     'stop': 'Parar',
     'steps': '{n} de {total}',
@@ -193,7 +192,7 @@ const _all = <Lang, Map<String, String>>{
     'menu': 'Volver al menú',
   },
   Lang.hi: {
-    'appTitle': 'Matheos',
+    'appTitle': 'कैल्कुमेंटल',
     'lead': 'अपने दिमाग़ की कसरत करें। आराम से।',
     'letsPlay': 'चलो खेलें',
     'chooseOwn': 'अपना खेल चुनें',
@@ -219,11 +218,11 @@ const _all = <Lang, Map<String, String>>{
     'look.raat': 'रात',
     'version': 'संस्करण: {v}',
     'donate': 'दान करें',
-    'privacyPolicy': 'गोपनीयता',
+    'privacyPolicy': 'गोपनीयता नीति देखें',
     'about': 'परिचय',
     'back': 'वापस',
     'aboutStory':
-        'Matheos मेक्सिको की एक छोटी लड़की के लिए बनाया गया था, जिसे संख्याओं से प्यार था और जो अंकगणित का और अभ्यास करना चाहती थी।',
+        'कैल्कुमेंटल मेक्सिको की एक छोटी लड़की के लिए बनाया गया था, जिसे संख्याओं से प्यार था और जो अंकगणित का और अभ्यास करना चाहती थी।',
     'aboutSharp': 'पता चला कि यह बहुत से लोगों के काम आ सकता है। थोड़ा-सा अभ्यास दिमाग़ को तेज़ रखता है।',
     'stop': 'रुकें',
     'steps': '{total} में से {n}',

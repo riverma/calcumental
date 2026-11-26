@@ -16,7 +16,7 @@ final donateUrl = Uri.parse('https://buy.stripe.com/9B6eVe8Gf4Bt21I6HFgrS00');
 
 /// The privacy policy, served with the web build. App Store guideline 5.1.1 wants it reachable
 /// from inside the app, so it is offered on every platform.
-final privacyUrl = Uri.parse('https://math.riverma.com/privacy/');
+final privacyUrl = Uri.parse('https://calcumental.riverma.com/privacy/');
 
 class AboutScreen extends StatelessWidget {
   const AboutScreen({super.key});
@@ -69,10 +69,7 @@ class AboutScreen extends StatelessWidget {
                     ),
                   ],
                   const SizedBox(height: Space.s6),
-                  Align(
-                    alignment: AlignmentDirectional.centerStart,
-                    child: KhButton(s.back, kind: KhButtonKind.ghost, onPressed: game.menu),
-                  ),
+                  KhButton(s.back, kind: KhButtonKind.ghost, expand: true, onPressed: game.menu),
                 ],
               ),
             ),

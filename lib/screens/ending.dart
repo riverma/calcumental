@@ -41,14 +41,9 @@ class EndingScreen extends StatelessWidget {
                     line: s.rest,
                   ),
                   const SizedBox(height: Space.s5),
-                  Wrap(
-                    spacing: Space.s4,
-                    runSpacing: Space.s4,
-                    children: [
-                      KhButton(s.anotherSet, size: KhButtonSize.lg, onPressed: game.start),
-                      KhButton(s.menu, kind: KhButtonKind.ghost, onPressed: game.menu),
-                    ],
-                  ),
+                  KhButton(s.anotherSet, size: KhButtonSize.lg, expand: true, onPressed: game.start),
+                  const SizedBox(height: Space.s4),
+                  KhButton(s.menu, kind: KhButtonKind.ghost, expand: true, onPressed: game.menu),
                   if (done.isNotEmpty) ...[
                     const SizedBox(height: Space.s6),
                     KhCard(

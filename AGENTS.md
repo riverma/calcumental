@@ -1,4 +1,4 @@
-# Working on Matheos
+# Working on Calcumental
 
 One Flutter app for iPhone and the web, on the Khelo design system
 (<https://github.com/riverma/khelo-design>). AGPL-3.0-or-later.

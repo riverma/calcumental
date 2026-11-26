@@ -1,6 +1,9 @@
 // Play: one problem at a time, the whole set's length always in view, and nothing that moves
 // on without you. A wrong answer is "not quite": try again, or ask to see it.
 //
+// After a "not quite" the field stays open: typing starts a fresh answer and backspace trims
+// the old one, so Try again is optional.
+//
 // Focus goes to the answer field only because of something you pressed (Let's play, Next,
 // Try again), never on its own. Enter does whatever the visible button does.
 
@@ -26,10 +29,13 @@ class _PlayScreenState extends State<PlayScreen> {
   final _field = FocusNode(debugLabel: 'answer');
   final _editor = GlobalKey<EditableTextState>();
   int? _shownIndex;
+  var _lastText = '';
+  var _editing = false;
 
   @override
   void initState() {
     super.initState();
+    _answer.addListener(_onEdit);
     // The person just pressed Let's play or Start: the field is where they meant to go.
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (mounted) showKeyboard(_field, _editor);
@@ -38,9 +44,31 @@ class _PlayScreenState extends State<PlayScreen> {
 
   @override
   void dispose() {
+    _answer.removeListener(_onEdit);
     _answer.dispose();
     _field.dispose();
     super.dispose();
+  }
+
+  /// After a "not quite", typing or backspacing is itself the new go: no need to press Try
+  /// again first. A typed digit starts a fresh answer; backspace trims the old one.
+  void _onEdit() {
+    final text = _answer.text;
+    final before = _lastText;
+    _lastText = text;
+    if (_editing || text == before) return;
+    final game = Scope.of(context);
+    if (game.session.phase != Phase.notQuite) return;
+    game.tryAgain();
+    final grew = text.length - before.length;
+    if (grew > 0) {
+      final end = _answer.selection.isValid ? _answer.selection.end.clamp(grew, text.length) : text.length;
+      final fresh = text.substring(end - grew, end);
+      _editing = true;
+      _answer.value = TextEditingValue(text: fresh, selection: TextSelection.collapsed(offset: fresh.length));
+      _editing = false;
+      _lastText = fresh;
+    }
   }
 
   void _primary() {
@@ -88,8 +116,13 @@ class _PlayScreenState extends State<PlayScreen> {
         kind: NoticeKind.note,
         text: s.notQuite,
         actions: [
-          KhButton(s.tryAgain, size: KhButtonSize.sm, onPressed: _tryAgain),
-          KhButton(s.showMe, size: KhButtonSize.sm, kind: KhButtonKind.ghost, onPressed: game.show),
+          // Side by side, half the width each, so both stay clear of the number pad.
+          KhEvenRow(
+            children: [
+              KhButton(s.tryAgain, expand: true, onPressed: _tryAgain),
+              KhButton(s.showMe, expand: true, kind: KhButtonKind.ghost, onPressed: game.show),
+            ],
+          ),
         ],
       ),
       Phase.settled => switch (session.here.outcome) {
@@ -137,37 +170,32 @@ class _PlayScreenState extends State<PlayScreen> {
               ),
             ),
             const SizedBox(height: Space.s5),
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Expanded(
-                  child: KhInput(
-                    controller: _answer,
-                    focusNode: _field,
-                    editor: _editor,
-                    label: s.yourAnswer,
-                    invalid: phase == Phase.notQuite,
-                    locked: phase != Phase.asking,
-                    onSubmitted: _primary,
-                  ),
-                ),
-                if (phase == Phase.asking) ...[
-                  const SizedBox(width: Space.s3),
-                  ListenableBuilder(
-                    listenable: _answer,
-                    builder: (context, _) =>
-                        KhButton(s.check, onPressed: parseAnswer(_answer.text) == null ? null : _primary),
-                  ),
-                ],
-              ],
+            KhInput(
+              controller: _answer,
+              focusNode: _field,
+              editor: _editor,
+              label: s.yourAnswer,
+              invalid: phase == Phase.notQuite,
+              locked: phase == Phase.settled || phase == Phase.ended,
+              onSubmitted: _primary,
             ),
+            if (phase == Phase.asking) ...[
+              // On its own line, full width and tall, so it is quick to hit with a thumb.
+              const SizedBox(height: Space.s4),
+              ListenableBuilder(
+                listenable: _answer,
+                builder: (context, _) => KhButton(
+                  s.check,
+                  size: KhButtonSize.lg,
+                  expand: true,
+                  onPressed: parseAnswer(_answer.text) == null ? null : _primary,
+                ),
+              ),
+            ],
             if (notice != null) ...[const SizedBox(height: Space.s4), notice],
             if (phase == Phase.settled) ...[
               const SizedBox(height: Space.s5),
-              Align(
-                alignment: Alignment.centerLeft,
-                child: KhButton(last ? s.finish : s.next, size: KhButtonSize.lg, onPressed: _primary),
-              ),
+              KhButton(last ? s.finish : s.next, size: KhButtonSize.lg, expand: true, onPressed: _primary),
             ],
           ],
         ),

@@ -7,14 +7,17 @@ All notable changes to this project are documented here. The format follows
 ## [Unreleased]
 
 ### Changed
+- The privacy policy now lives at <https://calcumental.riverma.com/privacy/>, and the About page links there.
+- After a "not quite", typing starts a fresh answer and backspace trims the old one; Try again is still there but no longer needed.
+- Full-width buttons, quick to hit with a thumb: Let's play, Choose your own, Apply, Check, Next, Another set, Menu and Back. Try again and Show me sit side by side, half the width each, clear of the number pad. In Customize, Level, How close and How many share the width the same way, and so do Language and Look on the menu. Languages are named in full: English, Español, हिन्दी.
 - The bigger number always comes first, so 11 × 9 and 120 + 87 rather than 9 × 11 and 87 + 120. Subtraction and division already read that way.
-- Renamed from Mental Math to Matheos, in every language, on the home screen, the launch screen, the About text and the privacy policy. The package name and the saved-settings key keep their old identifiers, so nothing a person has chosen is lost.
+- Renamed from Mental Math to Calcumental, in every language, on the home screen, the launch screen, the About text and the privacy policy. The package name and the saved-settings key keep their old identifiers, so nothing a person has chosen is lost.
 
 ### Added
 - An About page, from a small button at the foot of the menu: why the app was made and its
   version. On the web it also has a small Donate button that opens Stripe in the browser.
 - A privacy policy, in English and Spanish, on the web at `/privacy/` and from a small
-  Privacy button on the About page.
+  "View privacy policy" button on the About page.
 - iPad: tested on the iPad mini, the 13-inch iPad Pro both ways round, and Split View at
   320pt, at normal and very large text.
 
@@ -49,5 +52,5 @@ All notable changes to this project are documented here. The format follows
 - No streaks, star ratings, timing, confetti or result that moves on by itself. Khelo builds
   no compulsion mechanics; a set has a visible length and a real end instead.
 
-[Unreleased]: https://github.com/riverma/math-app/compare/v1.0.0...HEAD
-[1.0.0]: https://github.com/riverma/math-app/releases/tag/v1.0.0
+[Unreleased]: https://github.com/riverma/calcumental/compare/v1.0.0...HEAD
+[1.0.0]: https://github.com/riverma/calcumental/releases/tag/v1.0.0

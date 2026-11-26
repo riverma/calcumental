@@ -46,19 +46,9 @@ class MenuScreen extends StatelessWidget {
                   const SizedBox(height: Space.s4),
                   Text(s.lead, style: kh.t.lead),
                   const SizedBox(height: Space.s5),
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: KhButton(s.letsPlay, size: KhButtonSize.lg, icon: KhIcons.lattu, onPressed: game.start),
-                  ),
+                  KhButton(s.letsPlay, size: KhButtonSize.lg, icon: KhIcons.lattu, expand: true, onPressed: game.start),
                   const SizedBox(height: Space.s4),
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: KhButton(
-                      s.chooseOwn,
-                      kind: KhButtonKind.ghost,
-                      onPressed: game.toggleCustomize,
-                    ),
-                  ),
+                  KhButton(s.chooseOwn, kind: KhButtonKind.ghost, expand: true, onPressed: game.toggleCustomize),
                   if (game.draft != null) ...[const SizedBox(height: Space.s5), const _Customize()],
                   const SizedBox(height: Space.s7),
                   _Footer(settings: st),
@@ -116,6 +106,7 @@ class _Customize extends StatelessWidget {
           ],
           const SizedBox(height: Space.s5),
           KhChoice<Level>(
+            expand: true,
             title: s.level,
             values: Level.values,
             value: st.level,
@@ -124,6 +115,7 @@ class _Customize extends StatelessWidget {
           ),
           const SizedBox(height: Space.s4),
           KhChoice<Scoring>(
+            expand: true,
             title: s.howClose,
             values: Scoring.values,
             value: st.scoring,
@@ -132,6 +124,7 @@ class _Customize extends StatelessWidget {
           ),
           const SizedBox(height: Space.s4),
           KhChoice<int>(
+            expand: true,
             title: s.howMany,
             values: lengths,
             value: st.count,
@@ -139,10 +132,7 @@ class _Customize extends StatelessWidget {
             onChanged: (v) => game.edit((x) => x.copyWith(count: v)),
           ),
           const SizedBox(height: Space.s5),
-          Align(
-            alignment: Alignment.centerLeft,
-            child: KhButton(s.apply, kind: KhButtonKind.play, onPressed: game.apply),
-          ),
+          KhButton(s.apply, kind: KhButtonKind.play, size: KhButtonSize.lg, expand: true, onPressed: game.apply),
         ],
       ),
     );
@@ -158,17 +148,19 @@ class _Footer extends StatelessWidget {
     final game = Scope.of(context);
     final s = context.s;
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         KhChoice<Lang>(
+          expand: true,
           title: s.language,
           values: Lang.values,
           value: settings.lang,
-          labelOf: (l) => S.langLabel[l]!,
+          labelOf: (l) => S.langName[l]!,
           onChanged: (v) => game.update((x) => x.copyWith(lang: v)),
         ),
         const SizedBox(height: Space.s4),
         KhChoice<Look>(
+          expand: true,
           title: s.look,
           values: Look.values,
           value: settings.look,

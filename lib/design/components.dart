@@ -216,7 +216,9 @@ class KhButton extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               if (icon != null) ...[KhIcon(icon!, size: font * 1.3, ink: ink), const SizedBox(width: Space.s2)],
-              Flexible(child: text),
+              Flexible(
+                child: expand ? FittedBox(fit: BoxFit.scaleDown, child: text) : text,
+              ),
             ],
           ),
         );
@@ -232,12 +234,22 @@ class KhButton extends StatelessWidget {
 /// `.kh-chip`: one choice among a few. Chosen, it takes the selected fill and a heavier
 /// outline, so the state reads without colour.
 class KhChip extends StatelessWidget {
-  const KhChip(this.label, {super.key, required this.selected, required this.onPressed, this.semanticLabel});
+  const KhChip(
+    this.label, {
+    super.key,
+    required this.selected,
+    required this.onPressed,
+    this.semanticLabel,
+    this.expand = false,
+  });
 
   final String label;
   final bool selected;
   final VoidCallback onPressed;
   final String? semanticLabel;
+
+  /// Fill the width it is given, with the label centred, instead of hugging the label.
+  final bool expand;
 
   @override
   Widget build(BuildContext context) {
@@ -259,11 +271,26 @@ class KhChip extends StatelessWidget {
           border: Border.all(color: c.borderControl, width: selected ? Stroke.bold : Stroke.normal),
           boxShadow: selected ? const [] : null,
         ),
-        child: Text(
-          label,
-          style: balooAt(
-            700,
-          ).copyWith(fontSize: 16, height: kh.t.devanagari ? 1.35 : 1.2, color: selected ? c.onSelected : c.body),
+        // One line: in a shared row a long label shrinks a little rather than breaking.
+        child: Row(
+          mainAxisSize: expand ? MainAxisSize.max : MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Flexible(
+              child: FittedBox(
+                fit: BoxFit.scaleDown,
+                child: Text(
+                  label,
+                  maxLines: 1,
+                  style: balooAt(700).copyWith(
+                    fontSize: 16,
+                    height: kh.t.devanagari ? 1.35 : 1.2,
+                    color: selected ? c.onSelected : c.body,
+                  ),
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     );
@@ -279,8 +306,11 @@ class KhChoice<T> extends StatelessWidget {
     required this.value,
     required this.labelOf,
     required this.onChanged,
+    this.expand = false,
   });
 
+  /// Chips share the full width, side by side on one line.
+  final bool expand;
   final String title;
   final List<T> values;
   final T value;
@@ -290,23 +320,44 @@ class KhChoice<T> extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final t = Kh.of(context).t;
+    Widget chip(T v) => KhChip(
+      labelOf(v),
+      selected: v == value,
+      semanticLabel: '$title: ${labelOf(v)}',
+      expand: expand,
+      onPressed: () => onChanged(v),
+    );
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
+      crossAxisAlignment: expand ? CrossAxisAlignment.stretch : CrossAxisAlignment.start,
       children: [
         Semantics(header: true, child: Text(title.toUpperCase(), style: t.caps)),
         const SizedBox(height: Space.s1),
-        Wrap(
-          spacing: Space.s2,
-          children: [
-            for (final v in values)
-              KhChip(
-                labelOf(v),
-                selected: v == value,
-                semanticLabel: '$title: ${labelOf(v)}',
-                onPressed: () => onChanged(v),
-              ),
-          ],
-        ),
+        if (!expand)
+          Wrap(spacing: Space.s2, children: [for (final v in values) chip(v)])
+        else
+          KhEvenRow(gap: Space.s2, children: [for (final v in values) chip(v)]),
+      ],
+    );
+  }
+}
+
+/// Controls that divide the width between them, side by side: two buttons take half each,
+/// four chips a quarter each. They always stay on one line; a label that is too big for its
+/// share shrinks a little rather than wrapping or pushing the others onto another line.
+class KhEvenRow extends StatelessWidget {
+  const KhEvenRow({super.key, required this.children, this.gap = Space.s3});
+
+  final List<Widget> children;
+  final double gap;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        for (var i = 0; i < children.length; i++) ...[
+          if (i > 0) SizedBox(width: gap),
+          Expanded(child: children[i]),
+        ],
       ],
     );
   }
@@ -466,7 +517,12 @@ class KhNotice extends StatelessWidget {
           ),
           if (actions.isNotEmpty) ...[
             const SizedBox(height: Space.s3),
-            Wrap(spacing: Space.s3, runSpacing: Space.s2, children: actions),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                for (var i = 0; i < actions.length; i++) ...[if (i > 0) const SizedBox(height: Space.s2), actions[i]],
+              ],
+            ),
           ],
         ],
       ),

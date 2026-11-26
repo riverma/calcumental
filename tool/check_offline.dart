@@ -1,4 +1,4 @@
-// Matheos must work with the radio off, forever. Nothing in the web build may reach the
+// Calcumental must work with the radio off, forever. Nothing in the web build may reach the
 // network: no third-party origins in the HTML, the bootstrap, the service worker or the
 // manifest, and nothing anywhere that fetches from one.
 //
@@ -18,10 +18,10 @@ final _ours = RegExp(r'^(index\.html|sw\.js|manifest\.json|privacy/index\.html)$
 /// fetches.
 const _allowedLinks = [
   'https://math.riverma.com',
-  'https://math.riverma.com/privacy/',
+  'https://calcumental.riverma.com/privacy/',
   'https://khelo-design.riverma.com',
   'https://www.gnu.org/licenses/agpl-3.0.html',
-  'https://github.com/riverma/math-app',
+  'https://github.com/riverma/calcumental',
   'https://buy.stripe.com/9B6eVe8Gf4Bt21I6HFgrS00',
   'http://www.w3.org/',
 ];

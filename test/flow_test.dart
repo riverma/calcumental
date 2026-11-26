@@ -81,6 +81,37 @@ void main() {
     expect(game.session.index, 0);
   });
 
+  testWidgets('after a not quite, typing starts a fresh answer without Try again', (tester) async {
+    final game = testGame();
+    await pumpApp(tester, game);
+    await tapVisible(tester, find.bySemanticsLabel('Let’s play'));
+    final wrong = '${game.session.current.answer + 3}';
+    await type(tester, wrong);
+    await tapVisible(tester, find.bySemanticsLabel('Check'));
+    expect(game.session.phase, Phase.notQuite);
+
+    // One more digit on the end of the old answer: that digit alone is the new answer.
+    await type(tester, '${wrong}7');
+    expect(game.session.phase, Phase.asking);
+    expect(find.text('7'), findsOneWidget);
+    expect(find.text('Not quite. Have another go.'), findsNothing);
+    expect(find.bySemanticsLabel('Check'), findsOneWidget);
+  });
+
+  testWidgets('after a not quite, backspace trims the old answer without Try again', (tester) async {
+    final game = testGame();
+    await pumpApp(tester, game);
+    await tapVisible(tester, find.bySemanticsLabel('Let’s play'));
+    final wrong = '${game.session.current.answer + 30}';
+    await type(tester, wrong);
+    await tapVisible(tester, find.bySemanticsLabel('Check'));
+    expect(game.session.phase, Phase.notQuite);
+
+    await type(tester, wrong.substring(0, wrong.length - 1));
+    expect(game.session.phase, Phase.asking);
+    expect(find.text(wrong.substring(0, wrong.length - 1)), findsOneWidget);
+  });
+
   testWidgets('Enter does what the visible button does', (tester) async {
     final game = testGame();
     await pumpApp(tester, game);
@@ -152,9 +183,9 @@ void main() {
 
     // Language and look are not part of Customize; they switch in place, at once.
     await tapVisible(tester, find.bySemanticsLabel('Look: Raat'));
-    await tapVisible(tester, find.bySemanticsLabel('Language: हिं'));
+    await tapVisible(tester, find.bySemanticsLabel('Language: हिन्दी'));
     expect((store.saved.look, store.saved.lang), (Look.raat, Lang.hi));
-    expect(find.text('Matheos'), findsOneWidget);
+    expect(find.text('कैल्कुमेंटल'), findsOneWidget);
 
     await tapVisible(tester, find.bySemanticsLabel('चलो खेलें'));
     expect(game.session.total, 20);
@@ -186,7 +217,7 @@ void main() {
     expect(find.textContaining('young girl in Mexico'), findsOneWidget);
     expect(find.text('Version: $appVersion'), findsOneWidget);
     expect(find.bySemanticsLabel('Donate'), findsNothing);
-    expect(find.bySemanticsLabel('Privacy'), findsOneWidget);
+    expect(find.bySemanticsLabel('View privacy policy'), findsOneWidget);
     await tapVisible(tester, find.bySemanticsLabel('Back'));
     expect(find.byType(MenuScreen), findsOneWidget);
   });
@@ -196,7 +227,7 @@ void main() {
     await pumpApp(tester, game);
     await tapVisible(tester, find.bySemanticsLabel('About'));
     expect(find.bySemanticsLabel('Donate'), findsOneWidget);
-    expect(find.bySemanticsLabel('Privacy'), findsOneWidget);
+    expect(find.bySemanticsLabel('View privacy policy'), findsOneWidget);
     await tapVisible(tester, find.bySemanticsLabel('Back'));
     expect(find.byType(MenuScreen), findsOneWidget);
   });
