@@ -221,3 +221,10 @@ code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .
 .faq .opt { font-weight: 800; margin: 1rem 0 .2rem; color: var(--ink); }
 .faq ol { margin: .2rem 0 .6rem; padding-left: 1.4rem; color: var(--soft); }
 .faq li { margin: .35rem 0; }
+
+/* One pill, two links: the download, and Google's install steps. */
+.btn.split { padding: 0; gap: 0; overflow: hidden; }
+.btn.split a { display: inline-flex; align-items: center; gap: .5rem; color: inherit; text-decoration: none; padding: .55rem 1.1rem; min-height: 3.5rem; }
+.btn.split a.aux { font-size: .95rem; border-left: 3px solid var(--line); padding-inline: 1rem; text-decoration: underline; text-underline-offset: .2em; }
+.btn.split a:hover, .btn.split a:focus-visible { background: var(--primary); color: var(--on-primary); }
+.btn.split:hover { transform: none; box-shadow: 5px 5px 0 var(--shadow-ink); }

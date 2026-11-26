@@ -36,7 +36,7 @@ T = {
         title="Calcumental: arithmetic to practise at your own pace",
         desc="Calcumental is a free, open-source arithmetic app for iPhone and the web. Plus, minus, times and divide, at your own pace. No streaks, no scores, no timers, and it works offline.",
         og="Exercise your mental muscles. Take your time. Arithmetic puzzles with no streaks, no scores and no timers.",
-        nav=[("#story", "Why"), ("#features", "Features"), ("#get", "Get it"), ("privacy/", "Privacy")],
+        nav=[("#story", "Why"), ("#features", "Features"), ("#get", "Get it"), ("#faq", "FAQ")],
         github="GitHub",
         icon_alt="The Calcumental icon: four tiles showing plus, minus, times and divide",
         tagline="Exercise your mental muscles.",
@@ -73,10 +73,10 @@ T = {
         steps=[("Pick", "Press Let&rsquo;s play, or Customize to choose the operation, level and how many problems."), ("Solve", "Type your answer and press Check. If it&rsquo;s not quite right, have another go."), ("Take your time", "Nothing is timed or scored. When the set ends, you see what you did, and you can start another.")],
         get="Get Calcumental", get_sub="Free, with no ads and no in-app purchases.",
         store_long="Download on the App Store", soon_long="Coming soon for iPhone and iPad", priv="Privacy policy",
-android="Android", android_small="Free APK download", android_long="Download for Android", android_long_small="APK, Android 7 or later",
+android="Android", android_small="Free APK download", instructions="Instructions", android_long="Download for Android", android_long_small="APK, Android 7 or later",
         and_note='Not on Google Play. <a href="%s">Steps to install it, from Google</a>.' % HOW_TO,
         get_fine="The web version runs in your browser and works offline once it has loaded. You can add it to your Home Screen.",
-        faq="Questions",
+        faq="Frequently asked questions",
         qa=[
             ("Does it collect any data?", 'No. There are no accounts, no analytics and no ads, and the app makes no network requests. It remembers only your choices (language, look, what to practise), on your own device. Read the <a href="privacy/#en">privacy policy</a>.'),
             ("Why no streaks or scores?", "Calcumental is for practising without pressure. It never times you, ranks you or tells you how you compare, so the only person you&rsquo;re working with is you."),
@@ -84,7 +84,7 @@ android="Android", android_small="Free APK download", android_long="Download for
             ("What does &ldquo;close enough&rdquo; mean?", "It&rsquo;s a way to practise estimating. Instead of needing the exact answer, anything within 5% of it counts (never less than 1 away)."),
             ("Is it open source?", 'Yes, under the AGPL-3.0-or-later. The code is on <a href="%s">GitHub</a>. Its fonts are under the SIL Open Font License.' % REPO),
             ("Why isn't it on Google Play?", 'Calcumental is free and open source, and Google Play asks new personal developer accounts to run a <a href="%s">closed test with at least 12 testers for 14 days</a> before an app can be published. That is a lot of overhead and too taxing for me to do for every release, so the Android version is a direct download instead. It is the same app, and the code is open for anyone to check.' % PLAY_RULE),
-            ('How can I verify the Android download?', '<p>Verifying is optional. Either check shows the file is the one I published, and doing both is best. Google explains how Android <a href="%s">signs apps</a>.</p><p class="opt">Check the file</p><ol><li>Download <code>Calcumental.apk</code> from the <a href="%s">latest release</a>.</li><li>Get its SHA-256 checksum. On Mac or Linux, run <code>shasum -a 256 Calcumental.apk</code>. On Windows, run <code>certutil -hashfile Calcumental.apk SHA256</code>.</li><li>Check that it matches the checksum in the release notes.</li></ol><p class="opt">Check who signed it</p><ol><li>Get <a href="%s">apksigner</a>, which comes with the Android <a href="%s">SDK Build-Tools</a>.</li><li>Run <code>apksigner verify --print-certs Calcumental.apk</code>.</li><li>Check that the &ldquo;certificate SHA-256 digest&rdquo; line shows <code>%s</code>.</li></ol><p>If anything doesn&rsquo;t match, don&rsquo;t install it.</p>' % (APK_SIGN, RELEASES, APKSIGNER, BUILD_TOOLS, CERT_SHA256)),
+            ('How can I verify the Android download?', '<p>Verifying is optional. Either check shows the file is the one published, and doing both is best. Google explains how Android <a href="%s">signs apps</a>.</p><p class="opt">Check the file</p><ol><li>Download <code>Calcumental.apk</code> from the <a href="%s">latest release</a>.</li><li>Get its SHA-256 checksum. On Mac or Linux, run <code>shasum -a 256 Calcumental.apk</code>. On Windows, run <code>certutil -hashfile Calcumental.apk SHA256</code>.</li><li>Check that it matches the checksum in the release notes.</li></ol><p class="opt">Check who signed it</p><ol><li>Get <a href="%s">apksigner</a>, which comes with the Android <a href="%s">SDK Build-Tools</a>.</li><li>Run <code>apksigner verify --print-certs Calcumental.apk</code>.</li><li>Check that the &ldquo;certificate SHA-256 digest&rdquo; line shows <code>%s</code>.</li></ol><p>If anything doesn&rsquo;t match, don&rsquo;t install it.</p>' % (APK_SIGN, RELEASES, APKSIGNER, BUILD_TOOLS, CERT_SHA256)),
         ],
         foot='Built by <a href="%s">Rishi Verma</a>. Free software under the <a href="%s">AGPL-3.0-or-later</a>.' % (HOME, AGPL),
         source="Source on GitHub", privacy_anchor="privacy/#en",
@@ -94,7 +94,7 @@ android="Android", android_small="Free APK download", android_long="Download for
         title="Calcumental: aritmética para practicar a tu ritmo",
         desc="Calcumental es una app de aritmética gratuita y de código abierto para iPhone y la web. Sumas, restas, multiplicaciones y divisiones, a tu ritmo. Sin rachas, sin puntajes, sin cronómetros, y funciona sin conexión.",
         og="Ejercita tu mente. Tómate tu tiempo. Acertijos de aritmética sin rachas, sin puntajes y sin cronómetros.",
-        nav=[("#story", "Por qué"), ("#features", "Qué incluye"), ("#get", "Obtenerla"), ("../privacy/#es", "Privacidad")],
+        nav=[("#story", "Por qué"), ("#features", "Qué incluye"), ("#get", "Obtenerla"), ("#faq", "FAQ")],
         github="GitHub",
         icon_alt="El ícono de Calcumental: cuatro fichas con suma, resta, multiplicación y división",
         tagline="Ejercita tu mente.",
@@ -131,10 +131,10 @@ android="Android", android_small="Free APK download", android_long="Download for
         steps=[("Elige", "Pulsa A jugar, o Personalizar para elegir la operación, el nivel y cuántos problemas."), ("Resuelve", "Escribe tu respuesta y pulsa Comprobar. Si todavía no es correcta, prueba otra vez."), ("Tómate tu tiempo", "Nada se mide ni se puntúa. Cuando termina la serie, ves lo que hiciste y puedes empezar otra.")],
         get="Obtén Calcumental", get_sub="Gratis, sin anuncios y sin compras dentro de la app.",
         store_long="Descárgala en el App Store", soon_long="Próximamente para iPhone y iPad", priv="Política de privacidad",
-android="Android", android_small="APK gratis", android_long="Descargar para Android", android_long_small="APK, Android 7 o posterior",
+android="Android", android_small="APK gratis", instructions="Instrucciones", android_long="Descargar para Android", android_long_small="APK, Android 7 o posterior",
         and_note='No está en Google Play. <a href="%s">Pasos para instalarla, de Google</a> (en inglés).' % HOW_TO,
         get_fine="La versión web se ejecuta en tu navegador y funciona sin conexión una vez cargada. Puedes añadirla a tu pantalla de inicio.",
-        faq="Preguntas",
+        faq="Preguntas frecuentes",
         qa=[
             ("¿Recoge algún dato?", 'No. No hay cuentas, ni analíticas, ni anuncios, y la app no hace conexiones de red. Solo recuerda tus elecciones (idioma, aspecto, qué practicar), en tu propio dispositivo. Lee la <a href="../privacy/#es">política de privacidad</a>.'),
             ("¿Por qué sin rachas ni puntajes?", "Calcumental es para practicar sin presión. Nunca te cronometra, te clasifica ni te compara, así que la única persona con la que trabajas eres tú."),
@@ -142,7 +142,7 @@ android="Android", android_small="APK gratis", android_long="Descargar para Andr
             ("¿Qué significa &ldquo;más o menos&rdquo;?", "Es una forma de practicar la estimación. En vez de exigir la respuesta exacta, cuenta cualquier valor a menos del 5% (nunca a menos de 1)."),
             ("¿Es de código abierto?", 'Sí, con la licencia AGPL-3.0-or-later. El código está en <a href="%s">GitHub</a>. Sus tipos de letra están bajo la SIL Open Font License.' % REPO),
             ("¿Por qué no está en Google Play?", 'Calcumental es gratuito y de código abierto, y Google Play pide a las cuentas de desarrollador personales nuevas una <a href="%s">prueba cerrada con al menos 12 probadores durante 14 días</a> antes de publicar una app. Es mucha carga y demasiado agotador para mí hacerlo con cada versión, así que la versión para Android es una descarga directa. Es la misma app, y el código está abierto para que cualquiera lo revise.' % PLAY_RULE),
-            ('¿Cómo puedo verificar la descarga de Android?', '<p>Verificar es opcional. Cualquiera de las dos comprobaciones muestra que el archivo es el que publiqué, y lo mejor es hacer ambas. Google explica cómo Android <a href="%s">firma las apps</a> (en inglés).</p><p class="opt">Comprueba el archivo</p><ol><li>Descarga <code>Calcumental.apk</code> de la <a href="%s">última versión</a>.</li><li>Obtén su suma SHA-256. En Mac o Linux, ejecuta <code>shasum -a 256 Calcumental.apk</code>. En Windows, ejecuta <code>certutil -hashfile Calcumental.apk SHA256</code>.</li><li>Comprueba que coincide con la suma de las notas de la versión.</li></ol><p class="opt">Comprueba quién la firmó</p><ol><li>Consigue <a href="%s">apksigner</a>, que viene con las <a href="%s">SDK Build-Tools</a> de Android (en inglés).</li><li>Ejecuta <code>apksigner verify --print-certs Calcumental.apk</code>.</li><li>Comprueba que la línea &ldquo;certificate SHA-256 digest&rdquo; muestra <code>%s</code>.</li></ol><p>Si algo no coincide, no la instales.</p>' % (APK_SIGN, RELEASES, APKSIGNER, BUILD_TOOLS, CERT_SHA256)),
+            ('¿Cómo puedo verificar la descarga de Android?', '<p>Verificar es opcional. Cualquiera de las dos comprobaciones muestra que el archivo es el que se publicó, y lo mejor es hacer ambas. Google explica cómo Android <a href="%s">firma las apps</a> (en inglés).</p><p class="opt">Comprueba el archivo</p><ol><li>Descarga <code>Calcumental.apk</code> de la <a href="%s">última versión</a>.</li><li>Obtén su suma SHA-256. En Mac o Linux, ejecuta <code>shasum -a 256 Calcumental.apk</code>. En Windows, ejecuta <code>certutil -hashfile Calcumental.apk SHA256</code>.</li><li>Comprueba que coincide con la suma de las notas de la versión.</li></ol><p class="opt">Comprueba quién la firmó</p><ol><li>Consigue <a href="%s">apksigner</a>, que viene con las <a href="%s">SDK Build-Tools</a> de Android (en inglés).</li><li>Ejecuta <code>apksigner verify --print-certs Calcumental.apk</code>.</li><li>Comprueba que la línea &ldquo;certificate SHA-256 digest&rdquo; muestra <code>%s</code>.</li></ol><p>Si algo no coincide, no la instales.</p>' % (APK_SIGN, RELEASES, APKSIGNER, BUILD_TOOLS, CERT_SHA256)),
         ],
         foot='Hecha por <a href="%s">Rishi Verma</a>. Software libre bajo la <a href="%s">AGPL-3.0-or-later</a>.' % (HOME, AGPL),
         source="Código en GitHub", privacy_anchor="../privacy/#es",
@@ -152,7 +152,7 @@ android="Android", android_small="APK gratis", android_long="Descargar para Andr
         title="कैल्कुमेंटल: अपनी रफ़्तार से अंकगणित का अभ्यास",
         desc="कैल्कुमेंटल iPhone और वेब के लिए मुफ़्त, ओपन-सोर्स अंकगणित ऐप है। जोड़, घटाना, गुणा और भाग, अपनी रफ़्तार से। न स्ट्रीक, न स्कोर, न टाइमर, और ऑफ़लाइन चलता है।",
         og="अपने दिमाग़ की कसरत करें। आराम से। न स्ट्रीक, न स्कोर, न टाइमर वाली अंकगणित की पहेलियाँ।",
-        nav=[("#story", "क्यों"), ("#features", "क्या है अंदर"), ("#get", "पाएँ"), ("../privacy/#hi", "गोपनीयता")],
+        nav=[("#story", "क्यों"), ("#features", "क्या है अंदर"), ("#get", "पाएँ"), ("#faq", "FAQ")],
         github="GitHub",
         icon_alt="कैल्कुमेंटल का आइकन: जोड़, घटाना, गुणा और भाग दिखाती चार टाइलें",
         tagline="अपने दिमाग़ की कसरत करें।",
@@ -189,10 +189,10 @@ android="Android", android_small="APK gratis", android_long="Descargar para Andr
         steps=[("चुनें", "&lsquo;चलो खेलें&rsquo; दबाएँ, या &lsquo;अपना खेल चुनें&rsquo; से क्रिया, स्तर और सवालों की संख्या चुनें।"), ("हल करें", "अपना जवाब लिखें और &lsquo;जाँचें&rsquo; दबाएँ। अगर अभी सही नहीं है, तो एक बार और कोशिश करें।"), ("आराम से", "कुछ भी समय या अंकों से नहीं नापा जाता। सेट पूरा होने पर आप देखते हैं कि आपने क्या किया, और दूसरा सेट शुरू कर सकते हैं।")],
         get="कैल्कुमेंटल पाएँ", get_sub="मुफ़्त, बिना विज्ञापन और बिना इन-ऐप ख़रीद के।",
         store_long="App Store पर डाउनलोड करें", soon_long="iPhone और iPad के लिए जल्द आ रहा है", priv="गोपनीयता नीति",
-android="Android", android_small="मुफ़्त APK डाउनलोड", android_long="Android के लिए डाउनलोड करें", android_long_small="APK, Android 7 या उसके बाद",
+android="Android", android_small="मुफ़्त APK डाउनलोड", instructions="निर्देश", android_long="Android के लिए डाउनलोड करें", android_long_small="APK, Android 7 या उसके बाद",
         and_note='Google Play पर नहीं है। <a href="%s">इंस्टॉल करने के चरण, Google की ओर से</a> (अंग्रेज़ी में)।' % HOW_TO,
         get_fine="वेब संस्करण आपके ब्राउज़र में चलता है और एक बार लोड होने के बाद ऑफ़लाइन भी चलता है। आप इसे अपनी होम स्क्रीन पर जोड़ सकते हैं।",
-        faq="सवाल",
+        faq="अक्सर पूछे जाने वाले सवाल",
         qa=[
             ("क्या यह कोई डेटा इकट्ठा करता है?", 'नहीं। कोई खाता नहीं, कोई एनालिटिक्स नहीं, कोई विज्ञापन नहीं, और ऐप कोई नेटवर्क अनुरोध नहीं करता। यह सिर्फ़ आपकी पसंद (भाषा, रूप, क्या अभ्यास करना है) आपके अपने डिवाइस पर याद रखता है। <a href="../privacy/#hi">गोपनीयता नीति</a> पढ़ें।'),
             ("स्ट्रीक या स्कोर क्यों नहीं?", "कैल्कुमेंटल बिना दबाव के अभ्यास के लिए है। यह कभी आपका समय नहीं नापता, आपको रैंक नहीं देता और दूसरों से तुलना नहीं करता, इसलिए आप सिर्फ़ अपने साथ काम करते हैं।"),
@@ -200,7 +200,7 @@ android="Android", android_small="मुफ़्त APK डाउनलोड",
             ("&ldquo;लगभग सही&rdquo; का क्या मतलब है?", "यह अंदाज़ा लगाने के अभ्यास का तरीक़ा है। सटीक जवाब की जगह, उसके 5% के भीतर कोई भी जवाब सही गिना जाता है (1 से कम दूरी पर कभी नहीं)।"),
             ("क्या यह ओपन सोर्स है?", 'हाँ, AGPL-3.0-or-later के तहत। कोड <a href="%s">GitHub</a> पर है। इसके फ़ॉन्ट SIL Open Font License के तहत हैं।' % REPO),
             ("यह Google Play पर क्यों नहीं है?", 'Calcumental मुफ़्त और ओपन सोर्स है, और Google Play नए निजी डेवलपर खातों से ऐप प्रकाशित करने से पहले <a href="%s">कम से कम 12 परीक्षकों के साथ 14 दिन का बंद परीक्षण</a> चलवाता है। यह काफ़ी झंझट है और हर रिलीज़ के लिए इसे करना मेरे लिए बहुत थकाऊ है, इसलिए Android संस्करण सीधे डाउनलोड के रूप में दिया गया है। यह वही ऐप है, और कोड कोई भी जाँचने के लिए खुला है।' % PLAY_RULE),
-            ('मैं Android डाउनलोड को कैसे सत्यापित करूँ?', '<p>सत्यापन वैकल्पिक है। दोनों में से कोई भी जाँच दिखाती है कि फ़ाइल वही है जो मैंने प्रकाशित की, और दोनों करना सबसे अच्छा है। Google बताता है कि Android <a href="%s">ऐप कैसे साइन करता है</a> (अंग्रेज़ी में)।</p><p class="opt">फ़ाइल जाँचें</p><ol><li><a href="%s">नवीनतम रिलीज़</a> से <code>Calcumental.apk</code> डाउनलोड करें।</li><li>उसका SHA-256 चेकसम निकालें। Mac या Linux पर <code>shasum -a 256 Calcumental.apk</code> चलाएँ। Windows पर <code>certutil -hashfile Calcumental.apk SHA256</code> चलाएँ।</li><li>जाँचें कि वह रिलीज़ नोट्स के चेकसम से मिलता है।</li></ol><p class="opt">जाँचें कि किसने साइन किया</p><ol><li><a href="%s">apksigner</a> लें, जो Android के <a href="%s">SDK Build-Tools</a> के साथ आता है (अंग्रेज़ी में)।</li><li><code>apksigner verify --print-certs Calcumental.apk</code> चलाएँ।</li><li>जाँचें कि &ldquo;certificate SHA-256 digest&rdquo; वाली पंक्ति में <code>%s</code> दिखता है।</li></ol><p>अगर कुछ भी न मिले, तो इंस्टॉल न करें।</p>' % (APK_SIGN, RELEASES, APKSIGNER, BUILD_TOOLS, CERT_SHA256)),
+            ('मैं Android डाउनलोड को कैसे सत्यापित करूँ?', '<p>सत्यापन वैकल्पिक है। दोनों में से कोई भी जाँच दिखाती है कि फ़ाइल वही है जो प्रकाशित हुई, और दोनों करना सबसे अच्छा है। Google बताता है कि Android <a href="%s">ऐप कैसे साइन करता है</a> (अंग्रेज़ी में)।</p><p class="opt">फ़ाइल जाँचें</p><ol><li><a href="%s">नवीनतम रिलीज़</a> से <code>Calcumental.apk</code> डाउनलोड करें।</li><li>उसका SHA-256 चेकसम निकालें। Mac या Linux पर <code>shasum -a 256 Calcumental.apk</code> चलाएँ। Windows पर <code>certutil -hashfile Calcumental.apk SHA256</code> चलाएँ।</li><li>जाँचें कि वह रिलीज़ नोट्स के चेकसम से मिलता है।</li></ol><p class="opt">जाँचें कि किसने साइन किया</p><ol><li><a href="%s">apksigner</a> लें, जो Android के <a href="%s">SDK Build-Tools</a> के साथ आता है (अंग्रेज़ी में)।</li><li><code>apksigner verify --print-certs Calcumental.apk</code> चलाएँ।</li><li>जाँचें कि &ldquo;certificate SHA-256 digest&rdquo; वाली पंक्ति में <code>%s</code> दिखता है।</li></ol><p>अगर कुछ भी न मिले, तो इंस्टॉल न करें।</p>' % (APK_SIGN, RELEASES, APKSIGNER, BUILD_TOOLS, CERT_SHA256)),
         ],
         foot='<a href="%s">Rishi Verma</a> द्वारा बनाया गया। <a href="%s">AGPL-3.0-or-later</a> के तहत मुक्त सॉफ़्टवेयर।' % (HOME, AGPL),
         source="GitHub पर स्रोत", privacy_anchor="../privacy/#hi",
@@ -269,7 +269,6 @@ def page(code: str) -> str:
       <a class="brand" href="#top"><img src="{r}assets/icon-512.png" alt="" width="34" height="34">Calcumental</a>
       <nav aria-label="Sections">
         {nav}
-        <a href="{REPO}">{t['github']}</a>
       </nav>
       <div class="lang" role="navigation" aria-label="Language">{switch}</div>
     </div>
@@ -287,7 +286,7 @@ def page(code: str) -> str:
           <div class="actions">
             <a class="btn btn-primary" href="{play}">{GLOBE}<span>{t['play']}</span></a>
             <span class="btn" aria-disabled="true" role="link">{APPLE}<span>{t['store']}<small>{t['soon']}</small></span></span>
-            <a class="btn" href="{APK}">{ANDROID}<span>{t['android']}<small>{t['android_small']}</small></span></a>
+            <span class="btn split"><a class="main" href="{APK}">{ANDROID}<span>{t['android']}<small>{t['android_small']}</small></span></a><a class="aux" href="{HOW_TO}">{t['instructions']}</a></span>
           </div>
           <p class="fine">{t['fine']}</p>
         </div>
