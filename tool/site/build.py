@@ -17,8 +17,7 @@ REPO = "https://github.com/riverma/calcumental"
 HOME = "https://riverma.com"
 AGPL = "https://www.gnu.org/licenses/agpl-3.0.html"
 APK = REPO + "/releases/latest/download/Calcumental.apk"
-RELEASES = REPO + "/releases/latest"
-VERIFY = "https://developer.android.com/developer-verification"
+HOW_TO = "https://android-developers.googleblog.com/2026/03/android-developer-verification.html"
 
 # Platform marks for the buttons. Inline, so the page still fetches nothing else.
 GLOBE = '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9.2"/><ellipse cx="12" cy="12" rx="4" ry="9.2"/><path d="M3 12h18"/></g></svg>'
@@ -69,10 +68,7 @@ T = {
         get="Get Calcumental", get_sub="Free, with no ads and no in-app purchases.",
         store_long="Download on the App Store", soon_long="Coming soon for iPhone and iPad", priv="Privacy policy",
 android="Android", android_small="Free APK download", android_long="Download for Android", android_long_small="APK, Android 7 or later",
-        and_note='Not on Google Play. <a href="#android">How to install the APK</a>.',
-        and_h="Install on Android", and_sub="Calcumental isn&rsquo;t on Google Play, so you install the file yourself. It takes about a minute.",
-        and_steps=[("Download","Press <strong>Download for Android</strong>. Your browser may warn that this type of file can harm your device. Keep it."),("Allow your browser to install it","Open the file. If Android asks, allow your browser to install apps: Settings &rarr; Apps &rarr; Special app access &rarr; Install unknown apps, then choose your browser and switch on Allow from this source. Menu names vary a little by phone."),("Install","Tap Install, then Open. You can switch the setting off again afterwards.")],
-        and_fine='Google is adding <a href="%s">developer verification</a> for apps installed outside Google Play. On some phones, an app from an unverified developer needs an extra one-time &ldquo;advanced flow&rdquo; step before it installs, so please check that page for the current rules. The file&rsquo;s checksum is on the <a href="%s">release page</a>.' % (VERIFY, RELEASES),
+        and_note='Not on Google Play. <a href="%s">Steps to install it, from Google</a>.' % HOW_TO,
         get_fine="The web version runs in your browser and works offline once it has loaded. You can add it to your Home Screen.",
         faq="Questions",
         qa=[
@@ -128,10 +124,7 @@ android="Android", android_small="Free APK download", android_long="Download for
         get="Obtén Calcumental", get_sub="Gratis, sin anuncios y sin compras dentro de la app.",
         store_long="Descárgala en el App Store", soon_long="Próximamente para iPhone y iPad", priv="Política de privacidad",
 android="Android", android_small="APK gratis", android_long="Descargar para Android", android_long_small="APK, Android 7 o posterior",
-        and_note='No está en Google Play. <a href="#android">Cómo instalar el APK</a>.',
-        and_h="Instalar en Android", and_sub="Calcumental no está en Google Play, así que instalas el archivo tú mismo. Lleva alrededor de un minuto.",
-        and_steps=[("Descarga","Pulsa <strong>Descargar para Android</strong>. Tu navegador puede avisar de que este tipo de archivo podría dañar el dispositivo. Consérvalo."),("Permite que tu navegador instale","Abre el archivo. Si Android lo pide, permite que tu navegador instale apps: Ajustes &rarr; Apps &rarr; Acceso especial de apps &rarr; Instalar apps desconocidas, elige tu navegador y activa Permitir desde esta fuente. Los nombres de los menús varían un poco según el teléfono."),("Instala","Toca Instalar y luego Abrir. Después puedes volver a desactivar el ajuste.")],
-        and_fine='Google está añadiendo la <a href="%s">verificación de desarrolladores</a> para las apps instaladas fuera de Google Play. En algunos teléfonos, una app de un desarrollador sin verificar necesita un paso extra único, el &ldquo;flujo avanzado&rdquo;, antes de instalarse; consulta esa página para ver las reglas actuales. La suma de verificación del archivo está en la <a href="%s">página de la versión</a>.' % (VERIFY, RELEASES),
+        and_note='No está en Google Play. <a href="%s">Pasos para instalarla, de Google</a> (en inglés).' % HOW_TO,
         get_fine="La versión web se ejecuta en tu navegador y funciona sin conexión una vez cargada. Puedes añadirla a tu pantalla de inicio.",
         faq="Preguntas",
         qa=[
@@ -187,10 +180,7 @@ android="Android", android_small="APK gratis", android_long="Descargar para Andr
         get="कैल्कुमेंटल पाएँ", get_sub="मुफ़्त, बिना विज्ञापन और बिना इन-ऐप ख़रीद के।",
         store_long="App Store पर डाउनलोड करें", soon_long="iPhone और iPad के लिए जल्द आ रहा है", priv="गोपनीयता नीति",
 android="Android", android_small="मुफ़्त APK डाउनलोड", android_long="Android के लिए डाउनलोड करें", android_long_small="APK, Android 7 या उसके बाद",
-        and_note='Google Play पर नहीं है। <a href="#android">APK कैसे इंस्टॉल करें</a>।',
-        and_h="Android पर इंस्टॉल करें", and_sub="Calcumental Google Play पर नहीं है, इसलिए फ़ाइल आपको ख़ुद इंस्टॉल करनी होगी। इसमें करीब एक मिनट लगता है।",
-        and_steps=[("डाउनलोड करें","<strong>Android के लिए डाउनलोड करें</strong> दबाएँ। आपका ब्राउज़र चेतावनी दे सकता है कि इस तरह की फ़ाइल डिवाइस को नुक़सान पहुँचा सकती है। फ़ाइल रखें।"),("ब्राउज़र को इंस्टॉल करने दें","फ़ाइल खोलें। अगर Android पूछे, तो अपने ब्राउज़र को ऐप इंस्टॉल करने दें: Settings &rarr; Apps &rarr; Special app access &rarr; Install unknown apps, फिर अपना ब्राउज़र चुनें और Allow from this source चालू करें। फ़ोन के अनुसार मेन्यू के नाम थोड़े अलग हो सकते हैं।"),("इंस्टॉल करें","Install दबाएँ, फिर Open। बाद में आप यह सेटिंग फिर बंद कर सकते हैं।")],
-        and_fine='Google, Google Play के बाहर इंस्टॉल होने वाले ऐप के लिए <a href="%s">डेवलपर सत्यापन</a> जोड़ रहा है। कुछ फ़ोन पर, असत्यापित डेवलपर के ऐप को इंस्टॉल होने से पहले एक बार का अतिरिक्त &ldquo;advanced flow&rdquo; चरण चाहिए होता है, इसलिए मौजूदा नियमों के लिए वह पेज देखें। फ़ाइल का चेकसम <a href="%s">रिलीज़ पेज</a> पर है।' % (VERIFY, RELEASES),
+        and_note='Google Play पर नहीं है। <a href="%s">इंस्टॉल करने के चरण, Google की ओर से</a> (अंग्रेज़ी में)।' % HOW_TO,
         get_fine="वेब संस्करण आपके ब्राउज़र में चलता है और एक बार लोड होने के बाद ऑफ़लाइन भी चलता है। आप इसे अपनी होम स्क्रीन पर जोड़ सकते हैं।",
         faq="सवाल",
         qa=[
@@ -236,7 +226,6 @@ def page(code: str) -> str:
     shots = "\n          ".join(shots)
     steps = "\n          ".join(f"<li><h3>{h}</h3><p>{p}</p></li>" for h, p in t["steps"])
     qa = "\n          ".join(f"<details><summary>{q}</summary><p>{a}</p></details>" for q, a in t["qa"])
-    and_steps = "\n          ".join(f"<li><h3>{h}</h3><p>{p}</p></li>" for h, p in t["and_steps"])
     checks = "".join(f"<li>{c}</li>" for c in t["checks"])
     play = f"{r}play/" if r else "play/"
     privacy = t["privacy_anchor"]
@@ -348,17 +337,6 @@ def page(code: str) -> str:
         </div>
         <p class="fine">{t['and_note']}</p>
         <p class="fine">{t['get_fine']}</p>
-      </div>
-    </section>
-
-    <section id="android">
-      <div class="wrap">
-        <h2>{t['and_h']}</h2>
-        <p class="soft narrow">{t['and_sub']}</p>
-        <ol class="steps">
-          {and_steps}
-        </ol>
-        <p class="fine narrow">{t['and_fine']}</p>
       </div>
     </section>
 

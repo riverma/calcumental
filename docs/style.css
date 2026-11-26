@@ -213,7 +213,5 @@ footer a { color: var(--soft); }
 /* Platform marks on buttons */
 .btn svg { width: 1.5em; height: 1.5em; flex: none; }
 .btn > span { text-align: left; }
-.fine.narrow { max-width: 46rem; }
-#android { padding-top: 0; }
 .hero .btn { padding-inline: 1.1rem; gap: .5rem; }
 .hero .actions { gap: .9rem; }
