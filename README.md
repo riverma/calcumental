@@ -56,12 +56,13 @@ dart run tool/check_offline.dart     # fails on any reference to another origin
 flutter build apk --release      # build/app/outputs/flutter-apk/app-release.apk
 ```
 
-Release builds are signed with the key named in `android/key.properties` (git-ignored; see
-`android/app/build.gradle.kts`). Without it, the build falls back to the debug key, which is fine
-for trying the app but not for sharing. The APK is not on Google Play; the website links to the
-latest GitHub release instead.
+Release builds are signed with the key described in the file that the `CALCUMENTAL_SIGNING_PROPERTIES`
+environment variable points to. Keep that file, and the keystore it names, outside the project. It holds
+`storeFile`, `storePassword`, `keyAlias` and `keyPassword`. Without the variable, the build falls back to
+the debug key, which is fine for trying the app but not for sharing. The APK is not on Google Play; the
+website links to the latest GitHub release instead.
 
-For a release, `tool/android_release.sh` builds the APK as `build/release/Calcumental.apk`, writes
+For a release, `CALCUMENTAL_SIGNING_PROPERTIES=<settings file> tool/android_release.sh` builds the APK as `build/release/Calcumental.apk`, writes
 `Calcumental.apk.sha256` beside it and prints the checksum and signer fingerprint. Attach both
 files to the GitHub release and paste the checksum into its notes. The website's "How can I check
 the Android download?" answer lists the signer fingerprint, which never changes between releases.
@@ -69,11 +70,12 @@ the Android download?" answer lists the signer fingerprint, which never changes 
 ## iOS build
 
 ```sh
-tool/ios_release.sh      # build/ios/ipa/Calcumental.ipa, ready for Transporter
+CALCUMENTAL_IOS_SIGNING=<settings file> tool/ios_release.sh   # build/ios/ipa/Calcumental.ipa, ready for Transporter
 ```
 
 Raise the build number in `pubspec.yaml` (`version: X.Y.Z+N`) and commit it first; every upload needs a
-higher `N`. The team id lives in the git-ignored `ios/Flutter/Signing.xcconfig`.
+higher `N`. The settings file holds your team, as in `ios/Flutter/Signing.example.xcconfig`; keep it outside
+the project.
 
 ## Test
 

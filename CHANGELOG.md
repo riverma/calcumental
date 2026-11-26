@@ -10,7 +10,7 @@ All notable changes to this project are documented here. The format follows
 
 ### Added
 - A landing page in English, Español and हिन्दी (`docs/`, built by `tool/site/build.py`), and a GitHub Actions workflow that builds the web app and publishes the site, with the app at `/play/`.
-- An Android build: a signed APK that can be installed directly (not on Google Play), with a download button on the website that links to Google's install steps. Release signing comes from a git-ignored `android/key.properties`; without it, release builds fall back to the debug key.
+- An Android build: a signed APK that can be installed directly (not on Google Play), with a download button on the website that links to Google's install steps. Release signing settings are read from a file in your home folder, not the project; without it, release builds fall back to the debug key.
 - `tool/android_release.sh` and `tool/ios_release.sh`, which build the release files from the last commit, and a FAQ on the website explaining how to check the Android download (checksum and signing certificate).
 - The privacy policy now lists, with green check marks, what the app does not do, and is also in Hindi.
 

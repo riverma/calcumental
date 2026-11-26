@@ -6,11 +6,13 @@ plugins {
     id("dev.flutter.flutter-gradle-plugin")
 }
 
-// Release signing comes from android/key.properties (git-ignored). Without it, release builds
-// fall back to the debug key so `flutter run --release` still works for contributors.
+// Release signing settings live outside the project. Set CALCUMENTAL_SIGNING_PROPERTIES to the
+// file that holds them (storeFile, storePassword, keyAlias, keyPassword) when you build a release.
+// Without it, release builds fall back to the debug key, so `flutter run --release` still works
+// for everyone else.
 val keystoreProperties = Properties().apply {
-    val f = rootProject.file("key.properties")
-    if (f.exists()) f.inputStream().use { load(it) }
+    val f = System.getenv("CALCUMENTAL_SIGNING_PROPERTIES")?.let { File(it) }
+    if (f != null && f.exists()) f.inputStream().use { load(it) }
 }
 
 android {
