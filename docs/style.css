@@ -222,9 +222,10 @@ code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .
 .faq ol { margin: .2rem 0 .6rem; padding-left: 1.4rem; color: var(--soft); }
 .faq li { margin: .35rem 0; }
 
-/* One pill, two links: the download, and Google's install steps. */
-.btn.split { padding: 0; gap: 0; overflow: hidden; }
-.btn.split a { display: inline-flex; align-items: center; gap: .5rem; color: inherit; text-decoration: none; padding: .55rem 1.1rem; min-height: 3.5rem; }
-.btn.split a.aux { font-size: .95rem; border-left: 3px solid var(--line); padding-inline: 1rem; text-decoration: underline; text-underline-offset: .2em; }
-.btn.split a:hover, .btn.split a:focus-visible { background: var(--primary); color: var(--on-primary); }
-.btn.split:hover { transform: none; box-shadow: 5px 5px 0 var(--shadow-ink); }
+/* The Android pill: the whole pill downloads, and "Instructions" is its own link on the small line. */
+.btn.android { position: relative; }
+.btn.android .ic { display: inline-flex; }
+.btn.android a { color: inherit; text-decoration: none; }
+.btn.android a.stretch::after { content: ""; position: absolute; inset: 0; border-radius: 999px; }
+.btn.android a.inst { position: relative; z-index: 1; text-decoration: underline; text-underline-offset: .15em; }
+.btn.android:hover { transform: translate(-1px, -1px); box-shadow: 6px 6px 0 var(--shadow-ink); }

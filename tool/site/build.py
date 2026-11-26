@@ -7,6 +7,7 @@ One template, three sets of words, so the pages cannot drift apart. The output i
 with no script; docs/style.css dresses it.
 """
 
+from datetime import date
 from pathlib import Path
 
 DOCS = Path(__file__).resolve().parents[2] / "docs"
@@ -16,6 +17,19 @@ KHELO = "https://khelo-design.riverma.com"
 REPO = "https://github.com/riverma/calcumental"
 HOME = "https://riverma.com"
 AGPL = "https://www.gnu.org/licenses/agpl-3.0.html"
+TODAY = date.today()  # the date the site was last built
+MONTHS = {
+    "en": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+    "es": ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"],
+    "hi": ["जनवरी", "फ़रवरी", "मार्च", "अप्रैल", "मई", "जून", "जुलाई", "अगस्त", "सितंबर", "अक्टूबर", "नवंबर", "दिसंबर"],
+}
+
+
+def fmt_date(code: str) -> str:
+    m = MONTHS[code][TODAY.month - 1]
+    return {"en": f"{m} {TODAY.day}, {TODAY.year}", "es": f"{TODAY.day} de {m} de {TODAY.year}", "hi": f"{TODAY.day} {m} {TODAY.year}"}[code]
+
+
 APK = REPO + "/releases/latest/download/Calcumental.apk"
 CERT_SHA256 = "1778ce35141d6c39bb23285e2a4ee854586fd4a5f107bb589209f7bc750757b1"  # as apksigner prints it
 PLAY_RULE = "https://support.google.com/googleplay/android-developer/answer/14151465"
@@ -36,13 +50,13 @@ T = {
         title="Calcumental: arithmetic to practise at your own pace",
         desc="Calcumental is a free, open-source arithmetic app for iPhone and the web. Plus, minus, times and divide, at your own pace. No streaks, no scores, no timers, and it works offline.",
         og="Exercise your mental muscles. Take your time. Arithmetic puzzles with no streaks, no scores and no timers.",
-        nav=[("#story", "Why"), ("#features", "Features"), ("#get", "Get it"), ("#faq", "FAQ")],
+        nav=[("#story", "Why"), ("#features", "Features"), ("#get", "Download"), ("#faq", "FAQ")],
         github="GitHub",
         icon_alt="The Calcumental icon: four tiles showing plus, minus, times and divide",
         tagline="Exercise your mental muscles.",
         lede="Four operations, three levels, three languages. Practise anywhere, even offline.",
         checks=["No ads", "No tracking", "No accounts"],
-        play="Play online", store="App Store", soon="Coming soon for iPhone",
+        play="Play online", store="iOS", soon="Coming soon for iPhone",
         fine='Free and <a href="%s">open source</a>. In English, Español and हिन्दी.' % REPO,
         hero_alt="A multiplication problem, 81 times 8, answered correctly, with a friendly 'That's it!' and a wide Next button",
         shot_tag="Screenshot", shot_mark="SCREENSHOT", shot_note="This is a screenshot of the app.", shot_try="Try the real thing online.",
@@ -71,9 +85,9 @@ T = {
         alts=["The menu with Let's play, Customize and a choice of operations", "A problem waiting for an answer, with a large Check button", "A gentle 'Not quite. Have another go.' with Try again and Show me side by side", "A correct answer and a wide Next button", "The problem screen in the dark look, Raat"],
         how="How it works",
         steps=[("Pick", "Press Let&rsquo;s play, or Customize to choose the operation, level and how many problems."), ("Solve", "Type your answer and press Check. If it&rsquo;s not quite right, have another go."), ("Take your time", "Nothing is timed or scored. When the set ends, you see what you did, and you can start another.")],
-        get="Get Calcumental", get_sub="Free, with no ads and no in-app purchases.",
-        store_long="Download on the App Store", soon_long="Coming soon for iPhone and iPad", priv="Privacy policy",
-android="Android", android_small="Free APK download", instructions="Instructions", android_long="Download for Android", android_long_small="APK, Android 7 or later",
+        get="Download Calcumental", get_sub="Free, with no ads and no in-app purchases.",
+        store_long="Download for iOS", soon_long="Coming soon for iPhone and iPad", priv="Privacy policy",
+android="Android", android_small="Free APK download", instructions="Instructions", updated="Last updated", android_long="Download for Android", android_long_small="APK, Android 7 or later",
         and_note='Not on Google Play. <a href="%s">Steps to install it, from Google</a>.' % HOW_TO,
         get_fine="The web version runs in your browser and works offline once it has loaded. You can add it to your Home Screen.",
         faq="Frequently asked questions",
@@ -94,13 +108,13 @@ android="Android", android_small="Free APK download", instructions="Instructions
         title="Calcumental: aritmética para practicar a tu ritmo",
         desc="Calcumental es una app de aritmética gratuita y de código abierto para iPhone y la web. Sumas, restas, multiplicaciones y divisiones, a tu ritmo. Sin rachas, sin puntajes, sin cronómetros, y funciona sin conexión.",
         og="Ejercita tu mente. Tómate tu tiempo. Acertijos de aritmética sin rachas, sin puntajes y sin cronómetros.",
-        nav=[("#story", "Por qué"), ("#features", "Qué incluye"), ("#get", "Obtenerla"), ("#faq", "FAQ")],
+        nav=[("#story", "Por qué"), ("#features", "Qué incluye"), ("#get", "Descargar"), ("#faq", "FAQ")],
         github="GitHub",
         icon_alt="El ícono de Calcumental: cuatro fichas con suma, resta, multiplicación y división",
         tagline="Ejercita tu mente.",
         lede="Cuatro operaciones, tres niveles, tres idiomas. Practica donde sea, incluso sin conexión.",
         checks=["Sin anuncios", "Sin rastreo", "Sin cuentas"],
-        play="Jugar en línea", store="App Store", soon="Próximamente para iPhone",
+        play="Jugar en línea", store="iOS", soon="Próximamente para iPhone",
         fine='Gratis y de <a href="%s">código abierto</a>. En English, Español y हिन्दी.' % REPO,
         hero_alt="Una multiplicación, 81 por 8, respondida correctamente, con un amable mensaje y un botón Siguiente ancho",
         shot_tag="Captura de pantalla", shot_mark="CAPTURA", shot_note="Esta es una captura de pantalla de la app.", shot_try="Pruébala de verdad en línea.",
@@ -129,9 +143,9 @@ android="Android", android_small="Free APK download", instructions="Instructions
         alts=["El menú con A jugar, Personalizar y una elección de operaciones", "Un problema esperando respuesta, con un botón Comprobar grande", "Un amable 'Todavía no' con Otra vez y Muéstramelo lado a lado", "Una respuesta correcta y un botón Siguiente ancho", "La pantalla del problema en el aspecto oscuro, Raat"],
         how="Cómo funciona",
         steps=[("Elige", "Pulsa A jugar, o Personalizar para elegir la operación, el nivel y cuántos problemas."), ("Resuelve", "Escribe tu respuesta y pulsa Comprobar. Si todavía no es correcta, prueba otra vez."), ("Tómate tu tiempo", "Nada se mide ni se puntúa. Cuando termina la serie, ves lo que hiciste y puedes empezar otra.")],
-        get="Obtén Calcumental", get_sub="Gratis, sin anuncios y sin compras dentro de la app.",
-        store_long="Descárgala en el App Store", soon_long="Próximamente para iPhone y iPad", priv="Política de privacidad",
-android="Android", android_small="APK gratis", instructions="Instrucciones", android_long="Descargar para Android", android_long_small="APK, Android 7 o posterior",
+        get="Descarga Calcumental", get_sub="Gratis, sin anuncios y sin compras dentro de la app.",
+        store_long="Descargar para iOS", soon_long="Próximamente para iPhone y iPad", priv="Política de privacidad",
+android="Android", android_small="APK gratis", instructions="Instrucciones", updated="Última actualización", android_long="Descargar para Android", android_long_small="APK, Android 7 o posterior",
         and_note='No está en Google Play. <a href="%s">Pasos para instalarla, de Google</a> (en inglés).' % HOW_TO,
         get_fine="La versión web se ejecuta en tu navegador y funciona sin conexión una vez cargada. Puedes añadirla a tu pantalla de inicio.",
         faq="Preguntas frecuentes",
@@ -152,13 +166,13 @@ android="Android", android_small="APK gratis", instructions="Instrucciones", and
         title="कैल्कुमेंटल: अपनी रफ़्तार से अंकगणित का अभ्यास",
         desc="कैल्कुमेंटल iPhone और वेब के लिए मुफ़्त, ओपन-सोर्स अंकगणित ऐप है। जोड़, घटाना, गुणा और भाग, अपनी रफ़्तार से। न स्ट्रीक, न स्कोर, न टाइमर, और ऑफ़लाइन चलता है।",
         og="अपने दिमाग़ की कसरत करें। आराम से। न स्ट्रीक, न स्कोर, न टाइमर वाली अंकगणित की पहेलियाँ।",
-        nav=[("#story", "क्यों"), ("#features", "क्या है अंदर"), ("#get", "पाएँ"), ("#faq", "FAQ")],
+        nav=[("#story", "क्यों"), ("#features", "क्या है अंदर"), ("#get", "डाउनलोड"), ("#faq", "FAQ")],
         github="GitHub",
         icon_alt="कैल्कुमेंटल का आइकन: जोड़, घटाना, गुणा और भाग दिखाती चार टाइलें",
         tagline="अपने दिमाग़ की कसरत करें।",
         lede="चार क्रियाएँ, तीन स्तर, तीन भाषाएँ। कहीं भी अभ्यास करें, ऑफ़लाइन भी।",
         checks=["कोई विज्ञापन नहीं", "कोई ट्रैकिंग नहीं", "कोई खाता नहीं"],
-        play="ऑनलाइन खेलें", store="App Store", soon="iPhone के लिए जल्द आ रहा है",
+        play="ऑनलाइन खेलें", store="iOS", soon="iPhone के लिए जल्द आ रहा है",
         fine='मुफ़्त और <a href="%s">ओपन सोर्स</a>। English, Español और हिन्दी में।' % REPO,
         hero_alt="गुणा का एक सवाल, 81 × 8, सही हल किया हुआ, एक दोस्ताना संदेश और चौड़े 'अगला' बटन के साथ",
         shot_tag="स्क्रीनशॉट", shot_mark="स्क्रीनशॉट", shot_note="यह ऐप का स्क्रीनशॉट है।", shot_try="असली ऐप ऑनलाइन आज़माएँ।",
@@ -187,9 +201,9 @@ android="Android", android_small="APK gratis", instructions="Instrucciones", and
         alts=["चलो खेलें, अपना खेल चुनें और क्रियाओं के चुनाव वाला मेन्यू", "जवाब का इंतज़ार करता एक सवाल, बड़े &lsquo;जाँचें&rsquo; बटन के साथ", "&lsquo;अभी नहीं&rsquo; का नरम संदेश, &lsquo;फिर से&rsquo; और &lsquo;जवाब दिखाएँ&rsquo; साथ-साथ", "सही जवाब और चौड़ा &lsquo;अगला&rsquo; बटन", "गहरे रूप, रात, में सवाल की स्क्रीन"],
         how="यह कैसे काम करता है",
         steps=[("चुनें", "&lsquo;चलो खेलें&rsquo; दबाएँ, या &lsquo;अपना खेल चुनें&rsquo; से क्रिया, स्तर और सवालों की संख्या चुनें।"), ("हल करें", "अपना जवाब लिखें और &lsquo;जाँचें&rsquo; दबाएँ। अगर अभी सही नहीं है, तो एक बार और कोशिश करें।"), ("आराम से", "कुछ भी समय या अंकों से नहीं नापा जाता। सेट पूरा होने पर आप देखते हैं कि आपने क्या किया, और दूसरा सेट शुरू कर सकते हैं।")],
-        get="कैल्कुमेंटल पाएँ", get_sub="मुफ़्त, बिना विज्ञापन और बिना इन-ऐप ख़रीद के।",
-        store_long="App Store पर डाउनलोड करें", soon_long="iPhone और iPad के लिए जल्द आ रहा है", priv="गोपनीयता नीति",
-android="Android", android_small="मुफ़्त APK डाउनलोड", instructions="निर्देश", android_long="Android के लिए डाउनलोड करें", android_long_small="APK, Android 7 या उसके बाद",
+        get="कैल्कुमेंटल डाउनलोड करें", get_sub="मुफ़्त, बिना विज्ञापन और बिना इन-ऐप ख़रीद के।",
+        store_long="iOS के लिए डाउनलोड करें", soon_long="iPhone और iPad के लिए जल्द आ रहा है", priv="गोपनीयता नीति",
+android="Android", android_small="मुफ़्त APK डाउनलोड", instructions="निर्देश", updated="अंतिम अपडेट", android_long="Android के लिए डाउनलोड करें", android_long_small="APK, Android 7 या उसके बाद",
         and_note='Google Play पर नहीं है। <a href="%s">इंस्टॉल करने के चरण, Google की ओर से</a> (अंग्रेज़ी में)।' % HOW_TO,
         get_fine="वेब संस्करण आपके ब्राउज़र में चलता है और एक बार लोड होने के बाद ऑफ़लाइन भी चलता है। आप इसे अपनी होम स्क्रीन पर जोड़ सकते हैं।",
         faq="अक्सर पूछे जाने वाले सवाल",
@@ -286,7 +300,7 @@ def page(code: str) -> str:
           <div class="actions">
             <a class="btn btn-primary" href="{play}">{GLOBE}<span>{t['play']}</span></a>
             <span class="btn" aria-disabled="true" role="link">{APPLE}<span>{t['store']}<small>{t['soon']}</small></span></span>
-            <span class="btn split"><a class="main" href="{APK}">{ANDROID}<span>{t['android']}<small>{t['android_small']}</small></span></a><a class="aux" href="{HOW_TO}">{t['instructions']}</a></span>
+            <span class="btn android"><span class="ic">{ANDROID}</span><span><a class="stretch" href="{APK}">{t['android']}</a><small>{t['android_small']} &middot; <a class="inst" href="{HOW_TO}">{t['instructions']}</a></small></span></span>
           </div>
           <p class="fine">{t['fine']}</p>
         </div>
@@ -341,8 +355,8 @@ def page(code: str) -> str:
         <h2>{t['get']}</h2>
         <p class="soft narrow">{t['get_sub']}</p>
         <div class="actions">
-          <span class="btn" aria-disabled="true" role="link">{APPLE}<span>{t['store_long']}<small>{t['soon_long']}</small></span></span>
           <a class="btn btn-primary" href="{play}">{GLOBE}<span>{t['play']}</span></a>
+          <span class="btn" aria-disabled="true" role="link">{APPLE}<span>{t['store_long']}<small>{t['soon_long']}</small></span></span>
           <a class="btn" href="{APK}">{ANDROID}<span>{t['android_long']}<small>{t['android_long_small']}</small></span></a>
           <a class="btn" href="{privacy}">{t['priv']}</a>
         </div>
@@ -365,6 +379,7 @@ def page(code: str) -> str:
     <div class="wrap">
       <p>{t['foot']}</p>
       <p><a href="{privacy}">{t['priv']}</a> · <a href="{REPO}">{t['source']}</a> · <a href="{play}">{t['play']}</a></p>
+      <p class="fine">{t['updated']}: <time datetime="{TODAY.isoformat()}">{fmt_date(code)}</time></p>
     </div>
   </footer>
 </body>
